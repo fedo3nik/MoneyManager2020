@@ -38,6 +38,7 @@ namespace MoneyManager2020
         {
             string _email = EmailTextBox.Text;
             string _password = PasswordTextBox.Text;
+            bool flag = false;
 
             _connect.Open();
             string sqlQuery = "select * from Users";
@@ -57,18 +58,24 @@ namespace MoneyManager2020
 
                     if(_email == email.ToString() && _password == password.ToString())
                     {
-                        MessageBox.Show("Welcome to the MoneyManager2020!");
-                        MainMenu newMenu = new MainMenu();
-                        newMenu.Show();
-                        _reader.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Incorrect email or password!");
-                        _reader.Close();
-                    }
+                        flag = true;                    }
+                }
+
+                if(flag)
+                {
+                    MessageBox.Show("Welcome to the MoneyManager2020!");
+                    MainMenu newMenu = new MainMenu();
+                    newMenu.Show();
+                    _reader.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect email or password!");
+                    _reader.Close();
                 }
             }
+
+            _connect.Close();
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
