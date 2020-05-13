@@ -46,25 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBaseUML.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseUML.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="MoneyManagerDB.cs">
-      <DependentUpon>MoneyManagerDB.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SignInForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SignInForm.Designer.cs">
       <DependentUpon>SignInForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MoneyManagerDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MoneyManagerDB.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,16 +80,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="MoneyManagerDB.xsc">
-      <DependentUpon>MoneyManagerDB.xsd</DependentUpon>
+    <None Include="DataBaseUML.xsc">
+      <DependentUpon>DataBaseUML.xsd</DependentUpon>
     </None>
-    <None Include="MoneyManagerDB.xsd">
+    <None Include="DataBaseUML.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MoneyManagerDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataBaseUML.Designer.cs</LastGenOutput>
     </None>
-    <None Include="MoneyManagerDB.xss">
-      <DependentUpon>MoneyManagerDB.xsd</DependentUpon>
+    <None Include="DataBaseUML.xss">
+      <DependentUpon>DataBaseUML.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
