@@ -28,19 +28,130 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.MainMenuLabel = new System.Windows.Forms.Label();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.LastIncomeLabel = new System.Windows.Forms.Label();
+            this.LastOtlayLabel = new System.Windows.Forms.Label();
+            this.IncomeButton = new System.Windows.Forms.Button();
+            this.OutlayButton = new System.Windows.Forms.Button();
+            this.EditPlanButton = new System.Windows.Forms.Button();
+            this.SetIncomesOutlaysButton = new System.Windows.Forms.Button();
+            this.outlayPlanTableAdapter1 = new MoneyManager2020.DataBaseUMLTableAdapters.OutlayPlanTableAdapter();
             this.SuspendLayout();
+            // 
+            // MainMenuLabel
+            // 
+            this.MainMenuLabel.AutoSize = true;
+            this.MainMenuLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MainMenuLabel.Font = new System.Drawing.Font("MS Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MainMenuLabel.ForeColor = System.Drawing.Color.Coral;
+            this.MainMenuLabel.Location = new System.Drawing.Point(12, 9);
+            this.MainMenuLabel.Name = "MainMenuLabel";
+            this.MainMenuLabel.Size = new System.Drawing.Size(240, 32);
+            this.MainMenuLabel.TabIndex = 1;
+            this.MainMenuLabel.Text = "MoneyManger2020";
+            // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.emailLabel.ForeColor = System.Drawing.Color.Cornsilk;
+            this.emailLabel.Location = new System.Drawing.Point(13, 45);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(101, 25);
+            this.emailLabel.TabIndex = 2;
+            this.emailLabel.Text = "user email";
+            // 
+            // LastIncomeLabel
+            // 
+            this.LastIncomeLabel.AutoSize = true;
+            this.LastIncomeLabel.Location = new System.Drawing.Point(13, 97);
+            this.LastIncomeLabel.Name = "LastIncomeLabel";
+            this.LastIncomeLabel.Size = new System.Drawing.Size(16, 17);
+            this.LastIncomeLabel.TabIndex = 3;
+            this.LastIncomeLabel.Text = "0";
+            // 
+            // LastOtlayLabel
+            // 
+            this.LastOtlayLabel.AutoSize = true;
+            this.LastOtlayLabel.Location = new System.Drawing.Point(13, 125);
+            this.LastOtlayLabel.Name = "LastOtlayLabel";
+            this.LastOtlayLabel.Size = new System.Drawing.Size(16, 17);
+            this.LastOtlayLabel.TabIndex = 4;
+            this.LastOtlayLabel.Text = "0";
+            // 
+            // IncomeButton
+            // 
+            this.IncomeButton.Location = new System.Drawing.Point(12, 292);
+            this.IncomeButton.Name = "IncomeButton";
+            this.IncomeButton.Size = new System.Drawing.Size(121, 56);
+            this.IncomeButton.TabIndex = 5;
+            this.IncomeButton.Text = "Add Income";
+            this.IncomeButton.UseVisualStyleBackColor = true;
+            // 
+            // OutlayButton
+            // 
+            this.OutlayButton.Location = new System.Drawing.Point(139, 292);
+            this.OutlayButton.Name = "OutlayButton";
+            this.OutlayButton.Size = new System.Drawing.Size(121, 56);
+            this.OutlayButton.TabIndex = 6;
+            this.OutlayButton.Text = "Add Outlay";
+            this.OutlayButton.UseVisualStyleBackColor = true;
+            // 
+            // EditPlanButton
+            // 
+            this.EditPlanButton.Location = new System.Drawing.Point(669, 292);
+            this.EditPlanButton.Name = "EditPlanButton";
+            this.EditPlanButton.Size = new System.Drawing.Size(121, 56);
+            this.EditPlanButton.TabIndex = 7;
+            this.EditPlanButton.Text = "Edit your outlay plan";
+            this.EditPlanButton.UseVisualStyleBackColor = true;
+            // 
+            // SetIncomesOutlaysButton
+            // 
+            this.SetIncomesOutlaysButton.Location = new System.Drawing.Point(542, 292);
+            this.SetIncomesOutlaysButton.Name = "SetIncomesOutlaysButton";
+            this.SetIncomesOutlaysButton.Size = new System.Drawing.Size(121, 56);
+            this.SetIncomesOutlaysButton.TabIndex = 8;
+            this.SetIncomesOutlaysButton.Text = "Set new Outlays or Incomes";
+            this.SetIncomesOutlaysButton.UseVisualStyleBackColor = true;
+            // 
+            // outlayPlanTableAdapter1
+            // 
+            this.outlayPlanTableAdapter1.ClearBeforeFill = true;
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 450);
+            this.BackColor = System.Drawing.Color.DarkCyan;
+            this.ClientSize = new System.Drawing.Size(802, 385);
+            this.Controls.Add(this.SetIncomesOutlaysButton);
+            this.Controls.Add(this.EditPlanButton);
+            this.Controls.Add(this.OutlayButton);
+            this.Controls.Add(this.IncomeButton);
+            this.Controls.Add(this.LastOtlayLabel);
+            this.Controls.Add(this.LastIncomeLabel);
+            this.Controls.Add(this.emailLabel);
+            this.Controls.Add(this.MainMenuLabel);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label MainMenuLabel;
+        private System.Windows.Forms.Label LastIncomeLabel;
+        private System.Windows.Forms.Label LastOtlayLabel;
+        private System.Windows.Forms.Button IncomeButton;
+        private System.Windows.Forms.Button OutlayButton;
+        private System.Windows.Forms.Button EditPlanButton;
+        private System.Windows.Forms.Button SetIncomesOutlaysButton;
+        private DataBaseUMLTableAdapters.OutlayPlanTableAdapter outlayPlanTableAdapter1;
+        public System.Windows.Forms.Label emailLabel;
     }
 }

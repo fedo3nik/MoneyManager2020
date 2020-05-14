@@ -65,6 +65,8 @@ namespace MoneyManager2020
                 {
                     MessageBox.Show("Welcome to the MoneyManager2020!");
                     MainMenu newMenu = new MainMenu();
+
+                    newMenu.emailLabel.Text = "User " + EmailTextBox.Text;
                     newMenu.Show();
                     _reader.Close();
                 }

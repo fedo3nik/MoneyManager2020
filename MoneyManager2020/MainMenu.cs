@@ -16,5 +16,10 @@ namespace MoneyManager2020
         {
             InitializeComponent();
         }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

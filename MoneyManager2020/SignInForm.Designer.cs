@@ -43,7 +43,7 @@
             this.SignInLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SignInLabel.Font = new System.Drawing.Font("MS Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SignInLabel.ForeColor = System.Drawing.Color.Coral;
-            this.SignInLabel.Location = new System.Drawing.Point(12, 36);
+            this.SignInLabel.Location = new System.Drawing.Point(12, 43);
             this.SignInLabel.Name = "SignInLabel";
             this.SignInLabel.Size = new System.Drawing.Size(240, 32);
             this.SignInLabel.TabIndex = 0;
