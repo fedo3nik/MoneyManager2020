@@ -35,7 +35,7 @@ namespace MoneyManager2020
         }
 
         private void SignInButton_Click(object sender, EventArgs e)
-        {
+        { 
             string _email = EmailTextBox.Text;
             string _password = PasswordTextBox.Text;
             bool flag = false;
@@ -79,76 +79,104 @@ namespace MoneyManager2020
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
-        {
-            string _email = EmailTextBox.Text;
+        {   string _email = EmailTextBox.Text;
             string _password = PasswordTextBox.Text;
             bool emailFlag = false;
             bool passFlag = false;
+            bool existAccountFlag = true;
             int symCounter = 0;
-         
-            for(int i = 0; i < _email.Length; i++)
-            {
-                if(_email[0] == '@' || _email[0] == '.')
-                {
-                    emailFlag = false;
-                    break;
-                }
 
-                if (symCounter == 0)
+            _connect.Open();
+            string sqlQuery = "select * from Users";
+            _command = new SqlCommand(sqlQuery, _connect);
+            _reader = _command.ExecuteReader();
+
+            while (_reader.Read())
+            {
+                object email = _reader["email"];
+
+                if (_email == email.ToString())
                 {
-                    if (_email[i] == '@')
-                    {
-                        if (_email[i + 1] != '.')
-                        {
-                            ++symCounter;
-                        }
-                    }
+                    existAccountFlag = true;
+                    break;
                 }
                 else
                 {
-                    if(_email[i] == '@')
+                    existAccountFlag = false;
+                }
+            }
+            _reader.Close();
+
+            if (!existAccountFlag)
+            {
+                for (int i = 0; i < _email.Length; i++)
+                {
+                    if (_email[0] == '@' || _email[0] == '.')
                     {
                         emailFlag = false;
                         break;
                     }
+
+                    if (symCounter == 0)
+                    {
+                        if (_email[i] == '@')
+                        {
+                            if (_email[i + 1] != '.')
+                            {
+                                ++symCounter;
+                            }
+                        }
+                    }
                     else
                     {
-                        emailFlag = true;
-                        break;
+                        if (_email[i] == '@')
+                        {
+                            emailFlag = false;
+                            break;
+                        }
+                        else
+                        {
+                            emailFlag = true;
+                            break;
+                        }
                     }
                 }
-            }
 
-            if(_password.Length < 5)
-            {
-                passFlag = false;
-            }
-            else
-            {
-                passFlag = true;
-            }
-
-            if (emailFlag)
-            {
-                if (passFlag)
+                if (_password.Length < 5)
                 {
-                    _command = new SqlCommand();
-                    _connect.Open();
-                    _command.Connection = _connect;
-                    _command.CommandText = "insert into Users(email, password) values(\'" + _email + "\', \'" + _password + "\');"; 
-                    _command.ExecuteNonQuery();
-                    _connect.Close();
-
-                    MessageBox.Show("Congratulations!\nYou was succesfully signed up!!!");
+                    passFlag = false;
                 }
                 else
                 {
-                    MessageBox.Show("Invalid password!\nPassword minimum length must be 5 symbols!");
+                    passFlag = true;
+                }
+
+                if (emailFlag)
+                {
+                    if (passFlag)
+                    {
+                        _command = new SqlCommand();
+                        _command.Connection = _connect;
+                        _command.CommandText = "insert into Users(email, password) values(\'" + _email + "\', \'" + _password + "\');";
+                        _command.ExecuteNonQuery();
+                        _connect.Close();
+
+                        MessageBox.Show("Congratulations!\nYou was succesfully signed up!!!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid password!\nPassword minimum length must be 5 symbols!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid email!");
                 }
             }
             else
             {
-                MessageBox.Show("Invalid email!");
+                _connect.Close();
+                MessageBox.Show("User with this email already exist!");
             }
         }
     }
