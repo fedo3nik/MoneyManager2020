@@ -36,7 +36,8 @@
             this.OutlayButton = new System.Windows.Forms.Button();
             this.EditPlanButton = new System.Windows.Forms.Button();
             this.SetIncomesOutlaysButton = new System.Windows.Forms.Button();
-            this.outlayPlanTableAdapter1 = new MoneyManager2020.DataBaseUMLTableAdapters.OutlayPlanTableAdapter();
+            this.DataGridViewPlan = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPlan)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenuLabel
@@ -100,7 +101,7 @@
             // 
             // EditPlanButton
             // 
-            this.EditPlanButton.Location = new System.Drawing.Point(669, 292);
+            this.EditPlanButton.Location = new System.Drawing.Point(550, 292);
             this.EditPlanButton.Name = "EditPlanButton";
             this.EditPlanButton.Size = new System.Drawing.Size(121, 56);
             this.EditPlanButton.TabIndex = 7;
@@ -109,23 +110,31 @@
             // 
             // SetIncomesOutlaysButton
             // 
-            this.SetIncomesOutlaysButton.Location = new System.Drawing.Point(542, 292);
+            this.SetIncomesOutlaysButton.Location = new System.Drawing.Point(423, 292);
             this.SetIncomesOutlaysButton.Name = "SetIncomesOutlaysButton";
             this.SetIncomesOutlaysButton.Size = new System.Drawing.Size(121, 56);
             this.SetIncomesOutlaysButton.TabIndex = 8;
             this.SetIncomesOutlaysButton.Text = "Set new Outlays or Incomes";
             this.SetIncomesOutlaysButton.UseVisualStyleBackColor = true;
             // 
-            // outlayPlanTableAdapter1
+            // DataGridViewPlan
             // 
-            this.outlayPlanTableAdapter1.ClearBeforeFill = true;
+            this.DataGridViewPlan.BackgroundColor = System.Drawing.Color.Aqua;
+            this.DataGridViewPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewPlan.Location = new System.Drawing.Point(330, 45);
+            this.DataGridViewPlan.Name = "DataGridViewPlan";
+            this.DataGridViewPlan.RowHeadersWidth = 51;
+            this.DataGridViewPlan.RowTemplate.Height = 24;
+            this.DataGridViewPlan.Size = new System.Drawing.Size(341, 208);
+            this.DataGridViewPlan.TabIndex = 9;
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(802, 385);
+            this.ClientSize = new System.Drawing.Size(687, 385);
+            this.Controls.Add(this.DataGridViewPlan);
             this.Controls.Add(this.SetIncomesOutlaysButton);
             this.Controls.Add(this.EditPlanButton);
             this.Controls.Add(this.OutlayButton);
@@ -137,6 +146,7 @@
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.Load += new System.EventHandler(this.MainMenu_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPlan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,7 +161,7 @@
         private System.Windows.Forms.Button OutlayButton;
         private System.Windows.Forms.Button EditPlanButton;
         private System.Windows.Forms.Button SetIncomesOutlaysButton;
-        private DataBaseUMLTableAdapters.OutlayPlanTableAdapter outlayPlanTableAdapter1;
         public System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.DataGridView DataGridViewPlan;
     }
 }

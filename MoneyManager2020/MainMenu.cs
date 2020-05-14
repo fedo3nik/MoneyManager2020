@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace MoneyManager2020
 {
@@ -17,9 +18,28 @@ namespace MoneyManager2020
             InitializeComponent();
         }
 
+        SqlConnection connect;
+        SqlDataAdapter adapter;
+        DataSet ds;
+        //SqlCommand _command;
+        //SqlDataReader _reader;
+        
+        public void ShowTable()
+        {
+            string sqlConnectionString = @"Data Source=DESKTOP-O1NT2UF;Initial Catalog=MoneyManager;Integrated Security=True";
+            connect = new SqlConnection(sqlConnectionString);
+            string sqlQuery = "select cash, planDate from OutlayPlan;";
+            adapter = new SqlDataAdapter(sqlQuery, connect);
+            ds = new DataSet();
+            connect.Open();
+            adapter.Fill(ds, "OutlayPlan");
+            DataGridViewPlan.DataSource = ds.Tables["OutlayPlan"];
+            connect.Close();
+        }
+
         private void MainMenu_Load(object sender, EventArgs e)
         {
-
+            ShowTable();
         }
     }
 }
