@@ -84,22 +84,25 @@
             // 
             // SignInButton
             // 
+            this.SignInButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.SignInButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.SignInButton.Location = new System.Drawing.Point(16, 236);
             this.SignInButton.Name = "SignInButton";
             this.SignInButton.Size = new System.Drawing.Size(75, 33);
             this.SignInButton.TabIndex = 5;
             this.SignInButton.Text = "Sign In";
-            this.SignInButton.UseVisualStyleBackColor = true;
+            this.SignInButton.UseVisualStyleBackColor = false;
             this.SignInButton.Click += new System.EventHandler(this.SignInButton_Click);
             // 
             // SignUpButton
             // 
+            this.SignUpButton.BackColor = System.Drawing.Color.DarkCyan;
             this.SignUpButton.Location = new System.Drawing.Point(147, 236);
             this.SignUpButton.Name = "SignUpButton";
             this.SignUpButton.Size = new System.Drawing.Size(75, 33);
             this.SignUpButton.TabIndex = 6;
             this.SignUpButton.Text = "Sign Up";
-            this.SignUpButton.UseVisualStyleBackColor = true;
+            this.SignUpButton.UseVisualStyleBackColor = false;
             this.SignUpButton.Click += new System.EventHandler(this.SignUpButton_Click);
             // 
             // SignInForm

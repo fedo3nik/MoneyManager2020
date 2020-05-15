@@ -11,18 +11,17 @@ using System.Data.SqlClient;
 
 namespace MoneyManager2020
 {
-    public partial class MainMenu : Form
+    public partial class AddIncomeForm : Form
     {
-        public MainMenu()
+        public AddIncomeForm()
         {
             InitializeComponent();
-            string email = emailLabel.Text;
         }
 
         SqlConnection connect;
         SqlDataAdapter adapter;
         DataSet ds;
-        
+
         public void ShowTable()
         {
             string sqlConnectionString = @"Data Source=DESKTOP-O1NT2UF;Initial Catalog=MoneyManager;Integrated Security=True";
@@ -32,25 +31,18 @@ namespace MoneyManager2020
             ds = new DataSet();
             connect.Open();
             adapter.Fill(ds, "OutlayPlan");
-            DataGridViewPlan.DataSource = ds.Tables["OutlayPlan"];
+            DataGridViewIncomeTypes.DataSource = ds.Tables["OutlayPlan"];
             connect.Close();
         }
 
-        private void MainMenu_Load(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddIncomeForm_Load(object sender, EventArgs e)
         {
             ShowTable();
-        }
-
-        private void IncomeButton_Click(object sender, EventArgs e)
-        {
-            AddIncomeForm addIncomeForm = new AddIncomeForm();
-            addIncomeForm.Show();
-        }
-
-        private void OutlayButton_Click(object sender, EventArgs e)
-        {
-            AddOutlayForm addOutlayForm = new AddOutlayForm();
-            addOutlayForm.Show();
         }
     }
 }

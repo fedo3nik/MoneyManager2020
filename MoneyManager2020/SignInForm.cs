@@ -47,7 +47,7 @@ namespace MoneyManager2020
             
             if(!_reader.HasRows)
             {
-                MessageBox.Show("In the data base has no users!\nPlease sign up");
+                MessageBox.Show("In the data base has no users!\nPlease sign up", "Error");
             }
             else
             {
@@ -66,13 +66,14 @@ namespace MoneyManager2020
                     MessageBox.Show("Welcome to the MoneyManager2020!");
                     MainMenu newMenu = new MainMenu();
 
-                    newMenu.emailLabel.Text = "User " + EmailTextBox.Text;
+                    newMenu.emailLabel.Text = EmailTextBox.Text;
+                    this.Hide();
                     newMenu.Show();
                     _reader.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Incorrect email or password!");
+                    MessageBox.Show("Incorrect email or password!", "Error");
                     _reader.Close();
                 }
             }

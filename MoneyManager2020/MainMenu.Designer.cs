@@ -66,56 +66,66 @@
             // LastIncomeLabel
             // 
             this.LastIncomeLabel.AutoSize = true;
+            this.LastIncomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LastIncomeLabel.ForeColor = System.Drawing.Color.Cornsilk;
             this.LastIncomeLabel.Location = new System.Drawing.Point(13, 97);
             this.LastIncomeLabel.Name = "LastIncomeLabel";
-            this.LastIncomeLabel.Size = new System.Drawing.Size(16, 17);
+            this.LastIncomeLabel.Size = new System.Drawing.Size(24, 25);
             this.LastIncomeLabel.TabIndex = 3;
             this.LastIncomeLabel.Text = "0";
             // 
             // LastOtlayLabel
             // 
             this.LastOtlayLabel.AutoSize = true;
-            this.LastOtlayLabel.Location = new System.Drawing.Point(13, 125);
+            this.LastOtlayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LastOtlayLabel.ForeColor = System.Drawing.Color.Cornsilk;
+            this.LastOtlayLabel.Location = new System.Drawing.Point(13, 160);
             this.LastOtlayLabel.Name = "LastOtlayLabel";
-            this.LastOtlayLabel.Size = new System.Drawing.Size(16, 17);
+            this.LastOtlayLabel.Size = new System.Drawing.Size(24, 25);
             this.LastOtlayLabel.TabIndex = 4;
             this.LastOtlayLabel.Text = "0";
             // 
             // IncomeButton
             // 
-            this.IncomeButton.Location = new System.Drawing.Point(12, 292);
+            this.IncomeButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.IncomeButton.Location = new System.Drawing.Point(12, 259);
             this.IncomeButton.Name = "IncomeButton";
             this.IncomeButton.Size = new System.Drawing.Size(121, 56);
             this.IncomeButton.TabIndex = 5;
             this.IncomeButton.Text = "Add Income";
-            this.IncomeButton.UseVisualStyleBackColor = true;
+            this.IncomeButton.UseVisualStyleBackColor = false;
+            this.IncomeButton.Click += new System.EventHandler(this.IncomeButton_Click);
             // 
             // OutlayButton
             // 
-            this.OutlayButton.Location = new System.Drawing.Point(139, 292);
+            this.OutlayButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.OutlayButton.Location = new System.Drawing.Point(139, 259);
             this.OutlayButton.Name = "OutlayButton";
             this.OutlayButton.Size = new System.Drawing.Size(121, 56);
             this.OutlayButton.TabIndex = 6;
             this.OutlayButton.Text = "Add Outlay";
-            this.OutlayButton.UseVisualStyleBackColor = true;
+            this.OutlayButton.UseVisualStyleBackColor = false;
+            this.OutlayButton.Click += new System.EventHandler(this.OutlayButton_Click);
             // 
             // EditPlanButton
             // 
-            this.EditPlanButton.Location = new System.Drawing.Point(550, 292);
+            this.EditPlanButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.EditPlanButton.Location = new System.Drawing.Point(554, 259);
             this.EditPlanButton.Name = "EditPlanButton";
             this.EditPlanButton.Size = new System.Drawing.Size(121, 56);
             this.EditPlanButton.TabIndex = 7;
             this.EditPlanButton.Text = "Edit your outlay plan";
-            this.EditPlanButton.UseVisualStyleBackColor = true;
+            this.EditPlanButton.UseVisualStyleBackColor = false;
             // 
             // SetIncomesOutlaysButton
             // 
-            this.SetIncomesOutlaysButton.Location = new System.Drawing.Point(423, 292);
+            this.SetIncomesOutlaysButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.SetIncomesOutlaysButton.Location = new System.Drawing.Point(423, 259);
             this.SetIncomesOutlaysButton.Name = "SetIncomesOutlaysButton";
             this.SetIncomesOutlaysButton.Size = new System.Drawing.Size(121, 56);
             this.SetIncomesOutlaysButton.TabIndex = 8;
             this.SetIncomesOutlaysButton.Text = "Set new Outlays or Incomes";
-            this.SetIncomesOutlaysButton.UseVisualStyleBackColor = true;
+            this.SetIncomesOutlaysButton.UseVisualStyleBackColor = false;
             // 
             // DataGridViewPlan
             // 
@@ -133,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(687, 385);
+            this.ClientSize = new System.Drawing.Size(687, 329);
             this.Controls.Add(this.DataGridViewPlan);
             this.Controls.Add(this.SetIncomesOutlaysButton);
             this.Controls.Add(this.EditPlanButton);

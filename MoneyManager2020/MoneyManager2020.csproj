@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddIncomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddIncomeForm.Designer.cs">
+      <DependentUpon>AddIncomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddOutlayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOutlayForm.Designer.cs">
+      <DependentUpon>AddOutlayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBaseUML.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -57,6 +69,12 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanForm.Designer.cs">
+      <DependentUpon>PlanForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,8 +83,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddIncomeForm.resx">
+      <DependentUpon>AddIncomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOutlayForm.resx">
+      <DependentUpon>AddOutlayForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanForm.resx">
+      <DependentUpon>PlanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignInForm.resx">
       <DependentUpon>SignInForm.cs</DependentUpon>
