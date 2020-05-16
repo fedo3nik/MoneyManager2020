@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace MoneyManager2020
 {
@@ -18,169 +19,106 @@ namespace MoneyManager2020
             InitializeComponent();
         }
 
-        SqlConnection _connect;
-        SqlCommand _command;
-        SqlDataReader _reader;
-
-        void ConnectToSql()
-        {
-            _connect = new SqlConnection(@"Data Source=DESKTOP-O1NT2UF;Initial Catalog=MoneyManager;Integrated Security=True");
-            _connect.Open();
-            _connect.Close();
-        }
-
         private void SignInForm_Load(object sender, EventArgs e)
         {
-            ConnectToSql();
         }
 
         private void SignInButton_Click(object sender, EventArgs e)
-        { 
-            string _email = EmailTextBox.Text;
-            string _password = PasswordTextBox.Text;
-            bool flag = false;
+        {
+            Connect connect = new Connect();
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand command = new SqlCommand();
+            string sqlQuery = "select * from Users where email = @log and password = @pass;";
 
-            _connect.Open();
-            string sqlQuery = "select * from Users";
-            _command = new SqlCommand(sqlQuery, _connect);
-            _reader = _command.ExecuteReader();
-            
-            if(!_reader.HasRows)
+            command.CommandText = sqlQuery;
+            command.Connection = connect.GetConnection();
+            command.Parameters.Add("@log", SqlDbType.VarChar).Value = EmailTextBox.Text;
+            command.Parameters.Add("@pass", SqlDbType.VarChar).Value = PasswordTextBox.Text;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if(table.Rows.Count > 0)
             {
-                MessageBox.Show("In the data base has no users!\nPlease sign up", "Error");
+                this.Hide();
+                MessageBox.Show("Welcome to the MoneyManager2020!", "Success");
+                MainMenu menu = new MainMenu();
+                menu.Show();
+                connect.CloseConnection();
             }
+
             else
             {
-                while(_reader.Read())
+                if(EmailTextBox.Text.Trim().Equals(""))
                 {
-                    object email = _reader["email"];
-                    object password = _reader["password"];
-
-                    if(_email == email.ToString() && _password == password.ToString())
-                    {
-                        flag = true;                    }
+                    MessageBox.Show("Enter your email", "Email field is empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-                if(flag)
+                else if(PasswordTextBox.Text.Trim().Equals(""))
                 {
-                    MessageBox.Show("Welcome to the MoneyManager2020!");
-                    MainMenu newMenu = new MainMenu();
-
-                    newMenu.emailLabel.Text = EmailTextBox.Text;
-                    this.Hide();
-                    newMenu.Show();
-                    _reader.Close();
+                    MessageBox.Show("Enter your password", "Password field is empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Incorrect email or password!", "Error");
-                    _reader.Close();
+                    MessageBox.Show("Wrong email or password", "Invalid data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-
-            _connect.Close();
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
-        {   string _email = EmailTextBox.Text;
-            string _password = PasswordTextBox.Text;
-            bool emailFlag = false;
-            bool passFlag = false;
-            bool existAccountFlag = true;
-            int symCounter = 0;
+        {
+            Connect connect = new Connect();
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand command = new SqlCommand();
+            string sqlQuery = "select * from users where email = \'@log\' and password = \'@pass\';";
+            string pattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$";
 
-            _connect.Open();
-            string sqlQuery = "select * from Users";
-            _command = new SqlCommand(sqlQuery, _connect);
-            _reader = _command.ExecuteReader();
+            connect.OpenConnection();
+            command.CommandText = sqlQuery;
+            command.Connection = connect.GetConnection();
 
-            while (_reader.Read())
+            if (Regex.IsMatch(EmailTextBox.Text, pattern, RegexOptions.IgnoreCase))
             {
-                object email = _reader["email"];
-
-                if (_email == email.ToString())
+                if(PasswordTextBox.Text.Length > 4)
                 {
-                    existAccountFlag = true;
-                    break;
+                    command.Parameters.Add("@log", SqlDbType.VarChar).Value = EmailTextBox.Text;
+                    command.Parameters.Add("@pass", SqlDbType.VarChar).Value = PasswordTextBox.Text;
+
+                    adapter.SelectCommand = command;
+                    adapter.Fill(table);
+
+                    if (table.Rows.Count == 0)
+                    {
+                        string sqlQuery1 = "insert into Users(email, password) values(@log, @pass);";
+                        SqlCommand command1 = new SqlCommand();
+                        command.Connection = connect.GetConnection();
+                        command.CommandText = sqlQuery1;
+                        command.ExecuteNonQuery();
+                        connect.CloseConnection();
+
+                        MessageBox.Show("Your account was signed up", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        MessageBox.Show("Welcome to the MoneyManager2020!", "Success");
+                        MainMenu menu = new MainMenu();
+                        menu.Show();
+                        
+                    }
+
                 }
                 else
                 {
-                    existAccountFlag = false;
-                }
-            }
-            _reader.Close();
-
-            if (!existAccountFlag)
-            {
-                for (int i = 0; i < _email.Length; i++)
-                {
-                    if (_email[0] == '@' || _email[0] == '.')
-                    {
-                        emailFlag = false;
-                        break;
-                    }
-
-                    if (symCounter == 0)
-                    {
-                        if (_email[i] == '@')
-                        {
-                            if (_email[i + 1] != '.')
-                            {
-                                ++symCounter;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (_email[i] == '@')
-                        {
-                            emailFlag = false;
-                            break;
-                        }
-                        else
-                        {
-                            emailFlag = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (_password.Length < 5)
-                {
-                    passFlag = false;
-                }
-                else
-                {
-                    passFlag = true;
-                }
-
-                if (emailFlag)
-                {
-                    if (passFlag)
-                    {
-                        _command = new SqlCommand();
-                        _command.Connection = _connect;
-                        _command.CommandText = "insert into Users(email, password) values(\'" + _email + "\', \'" + _password + "\');";
-                        _command.ExecuteNonQuery();
-                        _connect.Close();
-
-                        MessageBox.Show("Congratulations!\nYou was succesfully signed up!!!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid password!\nPassword minimum length must be 5 symbols!");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Invalid email!");
+                    MessageBox.Show("Password must be longer than 5 symbols!","Invalid password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                _connect.Close();
-                MessageBox.Show("User with this email already exist!");
+                MessageBox.Show("Invalid email adress!", "Invalid email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
+
+
         }
     }
 }

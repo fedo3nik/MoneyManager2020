@@ -145,7 +145,7 @@
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(75, 43);
             this.UpdateButton.TabIndex = 11;
-            this.UpdateButton.Text = "Update outlay";
+            this.UpdateButton.Text = "Update outlays";
             this.UpdateButton.UseVisualStyleBackColor = false;
             // 
             // PlanForm

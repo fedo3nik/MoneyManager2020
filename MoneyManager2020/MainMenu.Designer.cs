@@ -37,6 +37,7 @@
             this.EditPlanButton = new System.Windows.Forms.Button();
             this.SetIncomesOutlaysButton = new System.Windows.Forms.Button();
             this.DataGridViewPlan = new System.Windows.Forms.DataGridView();
+            this.CashLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPlan)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,12 +139,24 @@
             this.DataGridViewPlan.Size = new System.Drawing.Size(341, 208);
             this.DataGridViewPlan.TabIndex = 9;
             // 
+            // CashLabel
+            // 
+            this.CashLabel.AutoSize = true;
+            this.CashLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CashLabel.ForeColor = System.Drawing.Color.Cornsilk;
+            this.CashLabel.Location = new System.Drawing.Point(134, 45);
+            this.CashLabel.Name = "CashLabel";
+            this.CashLabel.Size = new System.Drawing.Size(23, 25);
+            this.CashLabel.TabIndex = 10;
+            this.CashLabel.Text = "0";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(687, 329);
+            this.Controls.Add(this.CashLabel);
             this.Controls.Add(this.DataGridViewPlan);
             this.Controls.Add(this.SetIncomesOutlaysButton);
             this.Controls.Add(this.EditPlanButton);
@@ -173,5 +186,6 @@
         private System.Windows.Forms.Button SetIncomesOutlaysButton;
         public System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.DataGridView DataGridViewPlan;
+        private System.Windows.Forms.Label CashLabel;
     }
 }
