@@ -23,9 +23,12 @@ namespace MoneyManager2020
         {
         }
 
+        public string GetEmail() => EmailTextBox.Text;
+        public string GetPassword() => PasswordTextBox.Text;
+
         private void SignInButton_Click(object sender, EventArgs e)
         {
-            Connect connect = new Connect();
+            Connect connect = Connect.GetInstance();
             DataTable table = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand command = new SqlCommand();
@@ -67,7 +70,7 @@ namespace MoneyManager2020
 
         private void SignUpButton_Click(object sender, EventArgs e)
         {
-            Connect connect = new Connect();
+            Connect connect = Connect.GetInstance();
             DataTable table = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand command = new SqlCommand();

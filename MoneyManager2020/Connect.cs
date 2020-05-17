@@ -10,7 +10,15 @@ namespace MoneyManager2020
     class Connect
     {
         private static string connectionString = @"Data Source=DESKTOP-O1NT2UF;Initial Catalog = MoneyManager; Integrated Security = True";
-        private SqlConnection connection = new SqlConnection(connectionString);
+        private static readonly Connect instance = new Connect();
+        private SqlConnection connection;
+
+        private Connect()
+        {
+            connection = new SqlConnection(connectionString);
+        }
+
+        public static Connect GetInstance() => instance;
 
         public SqlConnection GetConnection() => connection;
 
