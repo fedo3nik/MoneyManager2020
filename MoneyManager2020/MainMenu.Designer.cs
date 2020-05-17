@@ -146,9 +146,9 @@
             this.CashLabel.ForeColor = System.Drawing.Color.Cornsilk;
             this.CashLabel.Location = new System.Drawing.Point(134, 45);
             this.CashLabel.Name = "CashLabel";
-            this.CashLabel.Size = new System.Drawing.Size(23, 25);
+            this.CashLabel.Size = new System.Drawing.Size(50, 25);
             this.CashLabel.TabIndex = 10;
-            this.CashLabel.Text = "0";
+            this.CashLabel.Text = "zero";
             // 
             // MainMenu
             // 
@@ -186,6 +186,6 @@
         private System.Windows.Forms.Button SetIncomesOutlaysButton;
         public System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.DataGridView DataGridViewPlan;
-        private System.Windows.Forms.Label CashLabel;
+        public System.Windows.Forms.Label CashLabel;
     }
 }

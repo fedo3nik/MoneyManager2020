@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MoneyManager2020
 {
@@ -32,11 +33,11 @@ namespace MoneyManager2020
             DataTable table = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand command = new SqlCommand();
-            string sqlQuery = "select * from Users where email = @log and password = @pass;";
+            string sqlQuery = "select * from Users where email = @mail and password = @pass;";
 
             command.CommandText = sqlQuery;
             command.Connection = connect.GetConnection();
-            command.Parameters.Add("@log", SqlDbType.VarChar).Value = EmailTextBox.Text;
+            command.Parameters.Add("@mail", SqlDbType.VarChar).Value = EmailTextBox.Text;
             command.Parameters.Add("@pass", SqlDbType.VarChar).Value = PasswordTextBox.Text;
 
             adapter.SelectCommand = command;
@@ -44,9 +45,10 @@ namespace MoneyManager2020
 
             if(table.Rows.Count > 0)
             {
+                MainMenu menu = new MainMenu();
+                User user = new User(this, menu);
                 this.Hide();
                 MessageBox.Show("Welcome to the MoneyManager2020!", "Success");
-                MainMenu menu = new MainMenu();
                 menu.Show();
                 connect.CloseConnection();
             }
@@ -74,11 +76,28 @@ namespace MoneyManager2020
             DataTable table = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand command = new SqlCommand();
-            string sqlQuery = "select * from users where email = \'@log\' and password = \'@pass\';";
+            SqlCommand checkCommand = new SqlCommand();
+            SqlDataReader reader;
+            bool isUserExist = false;
+            string sqlQuery = "select * from Users where email = \'@log\' and password = \'@pass\';";
+            string checkQuery = "select * from Users;";
             string pattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                 @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$";
 
             connect.OpenConnection();
+            checkCommand.CommandText = checkQuery;
+            checkCommand.Connection = connect.GetConnection();
+            reader = checkCommand.ExecuteReader();
+            while(reader.Read())
+            {
+                if(EmailTextBox.Text == reader["email"].ToString())
+                {
+                    isUserExist = true;
+                    reader.Close();
+                    break;
+                }
+            }
+
             command.CommandText = sqlQuery;
             command.Connection = connect.GetConnection();
 
@@ -86,15 +105,16 @@ namespace MoneyManager2020
             {
                 if(PasswordTextBox.Text.Length > 4)
                 {
-                    command.Parameters.Add("@log", SqlDbType.VarChar).Value = EmailTextBox.Text;
+                    command.Parameters.Add("@mail", SqlDbType.VarChar).Value = EmailTextBox.Text;
                     command.Parameters.Add("@pass", SqlDbType.VarChar).Value = PasswordTextBox.Text;
+
 
                     adapter.SelectCommand = command;
                     adapter.Fill(table);
 
-                    if (table.Rows.Count == 0)
+                    if (!isUserExist)
                     {
-                        string sqlQuery1 = "insert into Users(email, password) values(@log, @pass);";
+                        string sqlQuery1 = "insert into Users(email, password) values(@mail, @pass);";
                         SqlCommand command1 = new SqlCommand();
                         command.Connection = connect.GetConnection();
                         command.CommandText = sqlQuery1;
@@ -102,11 +122,16 @@ namespace MoneyManager2020
                         connect.CloseConnection();
 
                         MessageBox.Show("Your account was signed up", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MainMenu menu = new MainMenu();
+                        User user = new User(this, menu);
                         this.Hide();
                         MessageBox.Show("Welcome to the MoneyManager2020!", "Success");
-                        MainMenu menu = new MainMenu();
                         menu.Show();
                         
+                    }
+                    else
+                    {
+                        MessageBox.Show("User with this email is already exist!", "Used email", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
