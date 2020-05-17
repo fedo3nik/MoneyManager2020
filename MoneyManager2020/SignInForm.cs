@@ -45,11 +45,13 @@ namespace MoneyManager2020
 
             if(table.Rows.Count > 0)
             {
-                MainMenu menu = new MainMenu();
-                User user = new User(this, menu);
+                User user = new User(this);
+                MainMenu mainMenu = new MainMenu();
+                Menu menu = new Menu(mainMenu, user);
+                mainMenu.SetMenu(menu);
                 this.Hide();
                 MessageBox.Show("Welcome to the MoneyManager2020!", "Success");
-                menu.Show();
+                mainMenu.Show();
                 connect.CloseConnection();
             }
 
@@ -121,12 +123,14 @@ namespace MoneyManager2020
                         command.ExecuteNonQuery();
                         connect.CloseConnection();
 
+                        User user = new User(this);
+                        MainMenu mainMenu = new MainMenu();
+                        Menu menu = new Menu(mainMenu, user);
+                        mainMenu.SetMenu(menu);
                         MessageBox.Show("Your account was signed up", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MainMenu menu = new MainMenu();
-                        User user = new User(this, menu);
                         this.Hide();
                         MessageBox.Show("Welcome to the MoneyManager2020!", "Success");
-                        menu.Show();
+                        mainMenu.Show();
                         
                     }
                     else

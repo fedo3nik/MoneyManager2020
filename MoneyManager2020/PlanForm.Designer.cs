@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.IDLabel = new System.Windows.Forms.Label();
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.CashLabel = new System.Windows.Forms.Label();
@@ -40,7 +41,17 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
+            this.dataBaseUML = new MoneyManager2020.DataBaseUML();
+            this.outlayPlanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.outlayPlanTableAdapter = new MoneyManager2020.DataBaseUMLTableAdapters.OutlayPlanTableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cashDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outlayTypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.planDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBaseUML)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.outlayPlanBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // IDLabel
@@ -109,13 +120,21 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Cyan;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.userIDDataGridViewTextBoxColumn,
+            this.cashDataGridViewTextBoxColumn,
+            this.outlayTypeIDDataGridViewTextBoxColumn,
+            this.planDateDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.outlayPlanBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(344, 63);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 242);
+            this.dataGridView1.Size = new System.Drawing.Size(678, 242);
             this.dataGridView1.TabIndex = 8;
             // 
             // AddButton
@@ -148,12 +167,66 @@
             this.UpdateButton.Text = "Update outlays";
             this.UpdateButton.UseVisualStyleBackColor = false;
             // 
+            // dataBaseUML
+            // 
+            this.dataBaseUML.DataSetName = "DataBaseUML";
+            this.dataBaseUML.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // outlayPlanBindingSource
+            // 
+            this.outlayPlanBindingSource.DataMember = "OutlayPlan";
+            this.outlayPlanBindingSource.DataSource = this.dataBaseUML;
+            // 
+            // outlayPlanTableAdapter
+            // 
+            this.outlayPlanTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // userIDDataGridViewTextBoxColumn
+            // 
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
+            this.userIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // cashDataGridViewTextBoxColumn
+            // 
+            this.cashDataGridViewTextBoxColumn.DataPropertyName = "cash";
+            this.cashDataGridViewTextBoxColumn.HeaderText = "cash";
+            this.cashDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cashDataGridViewTextBoxColumn.Name = "cashDataGridViewTextBoxColumn";
+            this.cashDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // outlayTypeIDDataGridViewTextBoxColumn
+            // 
+            this.outlayTypeIDDataGridViewTextBoxColumn.DataPropertyName = "OutlayTypeID";
+            this.outlayTypeIDDataGridViewTextBoxColumn.HeaderText = "OutlayTypeID";
+            this.outlayTypeIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.outlayTypeIDDataGridViewTextBoxColumn.Name = "outlayTypeIDDataGridViewTextBoxColumn";
+            this.outlayTypeIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // planDateDataGridViewTextBoxColumn
+            // 
+            this.planDateDataGridViewTextBoxColumn.DataPropertyName = "planDate";
+            this.planDateDataGridViewTextBoxColumn.HeaderText = "planDate";
+            this.planDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.planDateDataGridViewTextBoxColumn.Name = "planDateDataGridViewTextBoxColumn";
+            this.planDateDataGridViewTextBoxColumn.Width = 125;
+            // 
             // PlanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(621, 341);
+            this.ClientSize = new System.Drawing.Size(1077, 341);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.AddButton);
@@ -168,7 +241,10 @@
             this.Controls.Add(this.IDLabel);
             this.Name = "PlanForm";
             this.Text = "PlanForm";
+            this.Load += new System.EventHandler(this.PlanForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBaseUML)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.outlayPlanBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,5 +264,13 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button UpdateButton;
+        private DataBaseUML dataBaseUML;
+        private System.Windows.Forms.BindingSource outlayPlanBindingSource;
+        private DataBaseUMLTableAdapters.OutlayPlanTableAdapter outlayPlanTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cashDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outlayTypeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn planDateDataGridViewTextBoxColumn;
     }
 }

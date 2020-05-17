@@ -13,32 +13,33 @@ namespace MoneyManager2020
 {
     public partial class MainMenu : Form
     {
+        Menu menu;
+        public void SetMenu(Menu someMenu) => menu = someMenu;
+
         public MainMenu()
         {
             InitializeComponent();
-            string email = emailLabel.Text;
         }
 
-        SqlConnection connect;
-        SqlDataAdapter adapter;
-        DataSet ds;
-        
-        public void ShowTable()
-        {
-            string sqlConnectionString = @"Data Source=DESKTOP-O1NT2UF;Initial Catalog=MoneyManager;Integrated Security=True";
-            connect = new SqlConnection(sqlConnectionString);
-            string sqlQuery = "select cash, planDate from OutlayPlan;";
-            adapter = new SqlDataAdapter(sqlQuery, connect);
-            ds = new DataSet();
-            connect.Open();
-            adapter.Fill(ds, "OutlayPlan");
-            DataGridViewPlan.DataSource = ds.Tables["OutlayPlan"];
-            connect.Close();
-        }
+        //public void ShowTable()
+        //{
+        //    Connect connect = Connect.GetInstance();
+        //    SqlDataAdapter adapter;
+        //    DataSet dataSet;
+        //    string sqlQuery = "select Outlay_Types.descript, OutlayPlan.cash, OutlayPlan.planDate " +
+        //                      "from OutlayPlan inner join Outlay_Types on OutlayPlan.OutlayTypeID = Outlay_Types.ID " +
+        //                      "and OutlayPlan.userID = " + user.ID + ";";
+        //    adapter = new SqlDataAdapter(sqlQuery, connect.GetConnection());
+        //    dataSet = new DataSet();
+        //    connect.OpenConnection();
+        //    adapter.Fill(dataSet, "OutlayPlan");
+        //    DataGridViewPlan.DataSource = dataSet.Tables["OutlayPlan"];
+        //    connect.CloseConnection();
+        //}
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            ShowTable();
+
         }
 
         private void IncomeButton_Click(object sender, EventArgs e)

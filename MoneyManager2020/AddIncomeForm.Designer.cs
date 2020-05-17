@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.CashLabel = new System.Windows.Forms.Label();
-            this.IDLabel = new System.Windows.Forms.Label();
             this.DateLabel = new System.Windows.Forms.Label();
             this.IncomeTypeID = new System.Windows.Forms.Label();
             this.AddIncomeButton = new System.Windows.Forms.Button();
@@ -38,6 +37,7 @@
             this.CashTextBox = new System.Windows.Forms.TextBox();
             this.DateTextBox = new System.Windows.Forms.TextBox();
             this.IncomeTypeIDTextBox = new System.Windows.Forms.TextBox();
+            this.IDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewIncomeTypes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,16 +49,6 @@
             this.CashLabel.Size = new System.Drawing.Size(40, 17);
             this.CashLabel.TabIndex = 0;
             this.CashLabel.Text = "Cash";
-            // 
-            // IDLabel
-            // 
-            this.IDLabel.AutoSize = true;
-            this.IDLabel.Location = new System.Drawing.Point(3, 24);
-            this.IDLabel.Name = "IDLabel";
-            this.IDLabel.Size = new System.Drawing.Size(21, 17);
-            this.IDLabel.TabIndex = 1;
-            this.IDLabel.Text = "ID";
-            this.IDLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // DateLabel
             // 
@@ -126,12 +116,24 @@
             this.IncomeTypeIDTextBox.Size = new System.Drawing.Size(100, 22);
             this.IncomeTypeIDTextBox.TabIndex = 9;
             // 
+            // IDLabel
+            // 
+            this.IDLabel.AutoSize = true;
+            this.IDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.IDLabel.ForeColor = System.Drawing.Color.Cornsilk;
+            this.IDLabel.Location = new System.Drawing.Point(5, 16);
+            this.IDLabel.Name = "IDLabel";
+            this.IDLabel.Size = new System.Drawing.Size(31, 25);
+            this.IDLabel.TabIndex = 10;
+            this.IDLabel.Text = "ID";
+            // 
             // AddIncomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(478, 285);
+            this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.IncomeTypeIDTextBox);
             this.Controls.Add(this.DateTextBox);
             this.Controls.Add(this.CashTextBox);
@@ -140,7 +142,6 @@
             this.Controls.Add(this.AddIncomeButton);
             this.Controls.Add(this.IncomeTypeID);
             this.Controls.Add(this.DateLabel);
-            this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.CashLabel);
             this.Name = "AddIncomeForm";
             this.Text = "AddIncomeForm";
@@ -154,7 +155,6 @@
         #endregion
 
         private System.Windows.Forms.Label CashLabel;
-        private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.Label DateLabel;
         private System.Windows.Forms.Label IncomeTypeID;
         private System.Windows.Forms.Button AddIncomeButton;
@@ -163,5 +163,6 @@
         private System.Windows.Forms.TextBox CashTextBox;
         private System.Windows.Forms.TextBox DateTextBox;
         private System.Windows.Forms.TextBox IncomeTypeIDTextBox;
+        public System.Windows.Forms.Label IDLabel;
     }
 }

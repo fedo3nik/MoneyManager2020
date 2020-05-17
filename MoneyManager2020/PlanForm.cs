@@ -16,5 +16,12 @@ namespace MoneyManager2020
         {
             InitializeComponent();
         }
+
+        private void PlanForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataBaseUML.OutlayPlan". При необходимости она может быть перемещена или удалена.
+            this.outlayPlanTableAdapter.Fill(this.dataBaseUML.OutlayPlan);
+
+        }
     }
 }

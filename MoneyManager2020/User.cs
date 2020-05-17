@@ -7,9 +7,9 @@ using System.Data.SqlClient;
 
 namespace MoneyManager2020
 {
-    class User
+    public class User
     {
-        private int ID;
+        private int id;
         private string email;
         private string password;
         private double cash;
@@ -18,19 +18,30 @@ namespace MoneyManager2020
         private string sqlQuery = "select * from Users where email = @mail and password = @pass;";
         private SqlDataReader reader;
 
-        public User(SignInForm inForm, MainMenu menu)
+        public User(SignInForm inForm)
         {
             this.email = inForm.GetEmail();
             this.password = inForm.GetPassword();
-            this.ID = GetID();
+            this.id = GetID();
             this.cash = GetCash();
-
-            menu.emailLabel.Text = this.email;
-            menu.CashLabel.Text = this.cash.ToString();
         }
 
-        public string GetEmail() => this.email;
-        public string GetPassword() => this.password;
+        public int ID
+        {
+            get => this.id;
+        }
+        public string Email 
+        {
+            get => this.email;
+        }
+        public string Password 
+        {
+            get => this.password; 
+        }
+        public double Cash 
+        {
+            get => this.cash; 
+        }
 
         public int GetID()
         {

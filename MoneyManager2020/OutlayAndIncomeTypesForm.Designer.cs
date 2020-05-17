@@ -36,10 +36,10 @@
             this.dataBaseUML = new MoneyManager2020.DataBaseUML();
             this.income_TypesTableAdapter = new MoneyManager2020.DataBaseUMLTableAdapters.Income_TypesTableAdapter();
             this.OutlayTypesDataGridView = new System.Windows.Forms.DataGridView();
-            this.outlayTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.outlay_TypesTableAdapter = new MoneyManager2020.DataBaseUMLTableAdapters.Outlay_TypesTableAdapter();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outlayTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.outlay_TypesTableAdapter = new MoneyManager2020.DataBaseUMLTableAdapters.Outlay_TypesTableAdapter();
             this.IncomeIdLabel = new System.Windows.Forms.Label();
             this.IncomeIdTextBox = new System.Windows.Forms.TextBox();
             this.IncomeDescriptionLabel = new System.Windows.Forms.Label();
@@ -119,15 +119,6 @@
             this.OutlayTypesDataGridView.Size = new System.Drawing.Size(220, 150);
             this.OutlayTypesDataGridView.TabIndex = 1;
             // 
-            // outlayTypesBindingSource
-            // 
-            this.outlayTypesBindingSource.DataMember = "Outlay_Types";
-            this.outlayTypesBindingSource.DataSource = this.dataBaseUML;
-            // 
-            // outlay_TypesTableAdapter
-            // 
-            this.outlay_TypesTableAdapter.ClearBeforeFill = true;
-            // 
             // iDDataGridViewTextBoxColumn1
             // 
             this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
@@ -143,6 +134,15 @@
             this.descriptDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.descriptDataGridViewTextBoxColumn1.Name = "descriptDataGridViewTextBoxColumn1";
             this.descriptDataGridViewTextBoxColumn1.Width = 160;
+            // 
+            // outlayTypesBindingSource
+            // 
+            this.outlayTypesBindingSource.DataMember = "Outlay_Types";
+            this.outlayTypesBindingSource.DataSource = this.dataBaseUML;
+            // 
+            // outlay_TypesTableAdapter
+            // 
+            this.outlay_TypesTableAdapter.ClearBeforeFill = true;
             // 
             // IncomeIdLabel
             // 
@@ -257,7 +257,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 309);
             this.Controls.Add(this.DeleteOutlayButton);
             this.Controls.Add(this.AddOutlayButton);
             this.Controls.Add(this.DeleteIncomeButton);
