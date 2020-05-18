@@ -10,7 +10,7 @@ namespace MoneyManager2020
 {
     public class Menu
     {
-        private User user;
+        private OrdinaryUser user;
         private int id;
         private string email;
         private double cash;
@@ -23,7 +23,7 @@ namespace MoneyManager2020
         private SqlCommand command = new SqlCommand();
         private SqlDataReader reader;
 
-        public Menu(MainMenu menu, User user)
+        public Menu(MainMenu menu, OrdinaryUser user)
         {
             this.user = user;
             this.id = user.ID;
@@ -72,9 +72,11 @@ namespace MoneyManager2020
             while(reader.Read())
             {
                 tempIncome = Convert.ToDouble(reader["cash"]);
+                reader.Close();
                 connect.CloseConnection();
                 return tempIncome;
             }
+            reader.Close();
             return 0;
         }
 
@@ -90,9 +92,11 @@ namespace MoneyManager2020
             while (reader.Read())
             {
                 tempIncomeDate = Convert.ToString(reader["incomeDate"]);
+                reader.Close();
                 connect.CloseConnection();
                 return tempIncomeDate;
             }
+            reader.Close();
             return "dd";
         }
 
@@ -108,9 +112,11 @@ namespace MoneyManager2020
             while (reader.Read())
             {
                 tempOutlay = Convert.ToDouble(reader["cash"]);
+                reader.Close();
                 connect.CloseConnection();
                 return tempOutlay;
             }
+            reader.Close();
             return 0;
         }
 
@@ -126,9 +132,11 @@ namespace MoneyManager2020
             while (reader.Read())
             {
                 tempOutlayDate = Convert.ToString(reader["outlayDate"]);
+                reader.Close();
                 connect.CloseConnection();
                 return tempOutlayDate;
             }
+            reader.Close();
             return "dd";
         }
 

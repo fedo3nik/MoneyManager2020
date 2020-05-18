@@ -58,7 +58,15 @@
     <Compile Include="AddOutlayForm.Designer.cs">
       <DependentUpon>AddOutlayForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Connect.cs" />
+    <Compile Include="AdminMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMenuForm.Designer.cs">
+      <DependentUpon>AdminMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuClasses\AdminMenu.cs" />
+    <Compile Include="UserClasses\Admin.cs" />
+    <Compile Include="ConnectClass\Connect.cs" />
     <Compile Include="DataBaseUML.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,7 +78,7 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs" />
+    <Compile Include="MenuClasses\Menu.cs" />
     <Compile Include="OutlayAndIncomeTypesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,12 +99,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="UserClasses\OrdinaryUser.cs" />
     <EmbeddedResource Include="AddIncomeForm.resx">
       <DependentUpon>AddIncomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddOutlayForm.resx">
       <DependentUpon>AddOutlayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminMenuForm.resx">
+      <DependentUpon>AdminMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -143,5 +154,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

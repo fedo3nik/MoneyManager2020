@@ -35,6 +35,7 @@
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.SignInButton = new System.Windows.Forms.Button();
             this.SignUpButton = new System.Windows.Forms.Button();
+            this.AdminSignInButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SignInLabel
@@ -105,12 +106,25 @@
             this.SignUpButton.UseVisualStyleBackColor = false;
             this.SignUpButton.Click += new System.EventHandler(this.SignUpButton_Click);
             // 
+            // AdminSignInButton
+            // 
+            this.AdminSignInButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.AdminSignInButton.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.AdminSignInButton.Location = new System.Drawing.Point(83, 275);
+            this.AdminSignInButton.Name = "AdminSignInButton";
+            this.AdminSignInButton.Size = new System.Drawing.Size(75, 46);
+            this.AdminSignInButton.TabIndex = 7;
+            this.AdminSignInButton.Text = "Sign In as admin";
+            this.AdminSignInButton.UseVisualStyleBackColor = false;
+            this.AdminSignInButton.Click += new System.EventHandler(this.AdminSignInButton_Click);
+            // 
             // SignInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(362, 388);
+            this.ClientSize = new System.Drawing.Size(268, 342);
+            this.Controls.Add(this.AdminSignInButton);
             this.Controls.Add(this.SignUpButton);
             this.Controls.Add(this.SignInButton);
             this.Controls.Add(this.PasswordLabel);
@@ -135,6 +149,7 @@
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Button SignInButton;
         private System.Windows.Forms.Button SignUpButton;
+        private System.Windows.Forms.Button AdminSignInButton;
     }
 }
 

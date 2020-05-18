@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography.X509Certificates;
+using MoneyManager2020.MenuClasses;
 
 namespace MoneyManager2020
 {
@@ -45,7 +46,7 @@ namespace MoneyManager2020
 
             if(table.Rows.Count > 0)
             {
-                User user = new User(this);
+                OrdinaryUser user = new OrdinaryUser(this);
                 MainMenu mainMenu = new MainMenu();
                 Menu menu = new Menu(mainMenu, user);
                 mainMenu.SetMenu(menu);
@@ -123,7 +124,7 @@ namespace MoneyManager2020
                         command.ExecuteNonQuery();
                         connect.CloseConnection();
 
-                        User user = new User(this);
+                        OrdinaryUser user = new OrdinaryUser(this);
                         MainMenu mainMenu = new MainMenu();
                         Menu menu = new Menu(mainMenu, user);
                         mainMenu.SetMenu(menu);
@@ -150,6 +151,51 @@ namespace MoneyManager2020
 
             }
 
+
+        }
+
+        private void AdminSignInButton_Click(object sender, EventArgs e)
+        {
+            Connect connect = Connect.GetInstance();
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand command = new SqlCommand();
+            string sqlQuery = "select * from Admins where email = @mail and password = @pass;";
+
+            command.CommandText = sqlQuery;
+            command.Connection = connect.GetConnection();
+            command.Parameters.Add("@mail", SqlDbType.VarChar).Value = EmailTextBox.Text;
+            command.Parameters.Add("@pass", SqlDbType.VarChar).Value = PasswordTextBox.Text;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                Admin admin = new Admin(this);
+                AdminMenuForm menuForm = new AdminMenuForm();
+                AdminMenu menu = new AdminMenu(menuForm, admin);
+                this.Hide();
+                MessageBox.Show("Welcome to the MoneyManager2020 admin mode!", "Success");
+                menuForm.Show();
+                connect.CloseConnection();
+            }
+
+            else
+            {
+                if (EmailTextBox.Text.Trim().Equals(""))
+                {
+                    MessageBox.Show("Enter your email", "Email field is empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (PasswordTextBox.Text.Trim().Equals(""))
+                {
+                    MessageBox.Show("Enter your password", "Password field is empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Wrong email or password", "Invalid data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
 
         }
     }

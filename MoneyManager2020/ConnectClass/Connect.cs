@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace MoneyManager2020
 {
-    class Connect
+    public class Connect
     {
         private static string connectionString = @"Data Source=DESKTOP-O1NT2UF;Initial Catalog = MoneyManager; Integrated Security = True";
         private static readonly Connect instance = new Connect();

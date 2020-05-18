@@ -158,18 +158,19 @@
             this.CashLabel.AutoSize = true;
             this.CashLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CashLabel.ForeColor = System.Drawing.Color.Orange;
-            this.CashLabel.Location = new System.Drawing.Point(134, 45);
+            this.CashLabel.Location = new System.Drawing.Point(148, 45);
             this.CashLabel.Name = "CashLabel";
             this.CashLabel.Size = new System.Drawing.Size(50, 25);
             this.CashLabel.TabIndex = 10;
             this.CashLabel.Text = "zero";
+            this.CashLabel.Click += new System.EventHandler(this.CashLabel_Click);
             // 
             // DollarLabel
             // 
             this.DollarLabel.AutoSize = true;
             this.DollarLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DollarLabel.ForeColor = System.Drawing.Color.Orange;
-            this.DollarLabel.Location = new System.Drawing.Point(179, 45);
+            this.DollarLabel.Location = new System.Drawing.Point(190, 45);
             this.DollarLabel.Name = "DollarLabel";
             this.DollarLabel.Size = new System.Drawing.Size(23, 25);
             this.DollarLabel.TabIndex = 11;
@@ -293,6 +294,7 @@
             this.Controls.Add(this.MainMenuLabel);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.Load += new System.EventHandler(this.MainMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPlan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBaseUML)).EndInit();

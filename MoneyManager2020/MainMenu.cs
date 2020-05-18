@@ -21,6 +21,7 @@ namespace MoneyManager2020
             InitializeComponent();
         }
 
+        
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
@@ -42,6 +43,16 @@ namespace MoneyManager2020
         private void IncomeDateLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CashLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
