@@ -21,21 +21,6 @@ namespace MoneyManager2020
             InitializeComponent();
         }
 
-        //public void ShowTable()
-        //{
-        //    Connect connect = Connect.GetInstance();
-        //    SqlDataAdapter adapter;
-        //    DataSet dataSet;
-        //    string sqlQuery = "select Outlay_Types.descript, OutlayPlan.cash, OutlayPlan.planDate " +
-        //                      "from OutlayPlan inner join Outlay_Types on OutlayPlan.OutlayTypeID = Outlay_Types.ID " +
-        //                      "and OutlayPlan.userID = " + user.ID + ";";
-        //    adapter = new SqlDataAdapter(sqlQuery, connect.GetConnection());
-        //    dataSet = new DataSet();
-        //    connect.OpenConnection();
-        //    adapter.Fill(dataSet, "OutlayPlan");
-        //    DataGridViewPlan.DataSource = dataSet.Tables["OutlayPlan"];
-        //    connect.CloseConnection();
-        //}
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
@@ -52,6 +37,11 @@ namespace MoneyManager2020
         {
             AddOutlayForm addOutlayForm = new AddOutlayForm();
             addOutlayForm.Show();
+        }
+
+        private void IncomeDateLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

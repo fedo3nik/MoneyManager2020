@@ -14,10 +14,13 @@ namespace MoneyManager2020
         private int id;
         private string email;
         private double cash;
+        private double lastIncome;
+        private string lastIncomeDate;
+        private double lastOutlay;
+        private string lastOutlayDate;
         private MainMenu activeMenu;
         private Connect connect = Connect.GetInstance();
         private SqlCommand command = new SqlCommand();
-        private string sqlQuery = "select * from Users where email = @mail and password = @pass;";
         private SqlDataReader reader;
 
         public Menu(MainMenu menu, User user)
@@ -27,15 +30,22 @@ namespace MoneyManager2020
             this.email = user.Email;
             this.cash = user.Cash;
             this.activeMenu = menu;
+            this.lastIncome = GetLastIncome();
+            this.lastIncomeDate = GetLastIncomeDate();
+            this.lastOutlay = GetLastOutlay();
+            this.lastOutlayDate = GetLastOutlayDate();
 
             activeMenu.emailLabel.Text = email;
             activeMenu.CashLabel.Text = cash.ToString();
             ShowPlanTable();
+            activeMenu.LastIncomeLabel.Text = lastIncome.ToString();
+            activeMenu.IncomeDateLabel.Text = lastIncomeDate;
+            activeMenu.LastOutlayLabel.Text = lastOutlay.ToString();
+            activeMenu.OutlayDateLabel.Text = lastOutlayDate;
         }
 
         public void ShowPlanTable()
         {
-            Connect connect = Connect.GetInstance();
             SqlDataAdapter adapter;
             DataSet dataSet;
             string sqlQuery = "select Outlay_Types.descript, OutlayPlan.cash, OutlayPlan.planDate " +
@@ -49,5 +59,78 @@ namespace MoneyManager2020
             connect.CloseConnection();
 
         }
+
+        public double GetLastIncome()
+        {
+            double tempIncome;
+            string sqlQuery = "select top 1 cash from Incomes where userID =\'" + this.id + "\';";
+            connect.OpenConnection();
+            command.CommandText = sqlQuery;
+            command.Connection = connect.GetConnection();
+
+            reader = command.ExecuteReader();
+            while(reader.Read())
+            {
+                tempIncome = Convert.ToDouble(reader["cash"]);
+                connect.CloseConnection();
+                return tempIncome;
+            }
+            return 0;
+        }
+
+        public string GetLastIncomeDate()
+        {
+            string tempIncomeDate;
+            string sqlQuery = "select top 1 incomeDate from Incomes where userID =\'" + this.id + "\';";
+            connect.OpenConnection();
+            command.CommandText = sqlQuery;
+            command.Connection = connect.GetConnection();
+
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                tempIncomeDate = Convert.ToString(reader["incomeDate"]);
+                connect.CloseConnection();
+                return tempIncomeDate;
+            }
+            return "dd";
+        }
+
+        public double GetLastOutlay()
+        {
+            double tempOutlay;
+            string sqlQuery = "select top 1 cash from Outlays where userID =\'" + this.id + "\';";
+            connect.OpenConnection();
+            command.CommandText = sqlQuery;
+            command.Connection = connect.GetConnection();
+
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                tempOutlay = Convert.ToDouble(reader["cash"]);
+                connect.CloseConnection();
+                return tempOutlay;
+            }
+            return 0;
+        }
+
+        public string GetLastOutlayDate()
+        {
+            string tempOutlayDate;
+            string sqlQuery = "select top 1 outlayDate from Outlays where userID =\'" + this.id + "\';";
+            connect.OpenConnection();
+            command.CommandText = sqlQuery;
+            command.Connection = connect.GetConnection();
+
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                tempOutlayDate = Convert.ToString(reader["outlayDate"]);
+                connect.CloseConnection();
+                return tempOutlayDate;
+            }
+            return "dd";
+        }
+
     }
 }
