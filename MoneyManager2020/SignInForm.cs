@@ -175,6 +175,7 @@ namespace MoneyManager2020
                 Admin admin = new Admin(this);
                 AdminMenuForm menuForm = new AdminMenuForm();
                 AdminMenu menu = new AdminMenu(menuForm, admin);
+                menuForm.SetMenu(menu);
                 this.Hide();
                 MessageBox.Show("Welcome to the MoneyManager2020 admin mode!", "Success");
                 menuForm.Show();
