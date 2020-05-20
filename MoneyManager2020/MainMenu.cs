@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MoneyManager2020.FormsClasses;
 
 namespace MoneyManager2020
 {
@@ -31,6 +32,8 @@ namespace MoneyManager2020
         private void IncomeButton_Click(object sender, EventArgs e)
         {
             AddIncomeForm addIncomeForm = new AddIncomeForm();
+            AddIncomeClass incomeClass = new AddIncomeClass(menu.Id, addIncomeForm);
+            addIncomeForm.SetClass(incomeClass);
             addIncomeForm.Show();
         }
 

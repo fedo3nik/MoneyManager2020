@@ -64,6 +64,10 @@
     <Compile Include="AdminMenuForm.Designer.cs">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataBaseUML.cs">
+      <DependentUpon>DataBaseUML.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormsClasses\AddIncomeClass.cs" />
     <Compile Include="MenuClasses\AdminMenu.cs" />
     <Compile Include="UserClasses\Admin.cs" />
     <Compile Include="ConnectClass\Connect.cs" />

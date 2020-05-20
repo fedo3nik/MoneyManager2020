@@ -44,6 +44,11 @@ namespace MoneyManager2020
             activeMenu.OutlayDateLabel.Text = lastOutlayDate;
         }
 
+        public int Id
+        {
+            get => this.id;
+        }
+
         public void ShowPlanTable()
         {
             SqlDataAdapter adapter;
@@ -57,7 +62,6 @@ namespace MoneyManager2020
             adapter.Fill(dataSet, "OutlayPlan");
             activeMenu.DataGridViewPlan.DataSource = dataSet.Tables["OutlayPlan"];
             connect.CloseConnection();
-
         }
 
         public double GetLastIncome()
