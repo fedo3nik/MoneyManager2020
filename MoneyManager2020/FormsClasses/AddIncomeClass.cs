@@ -46,36 +46,45 @@ namespace MoneyManager2020.FormsClasses
             try
             {
                 string datePattern = @"(0?[1-9]|[12][0-9]|3[01]).(0?[1-9]|1[012]).((19|20)\d\d)";
-                string numberPattern = @"\d+(?:\.\d+)?";
 
                 this.incomeId = Convert.ToInt32(activeForm.IDTextBox.Text);
                 this.cash = Convert.ToDouble(activeForm.CashTextBox.Text);
                 this.date = activeForm.DateTextBox.Text;
                 this.incomeTypeId = Convert.ToInt32(activeForm.IncomeTypeIDTextBox.Text);
 
-                //TODO: Add anothers valid check(for id, cash and income type)
                 if(Regex.IsMatch(this.date, datePattern, RegexOptions.IgnoreCase))
-                {
-                    connect.OpenConnection();
-                    string sqlQuery = "insert into Incomes(ID, userID, cash, incomeDate, incomeTypeID)" +
-                                      "values(@ID, @userID, @cash, @date, @typeId);";
-                    command.Parameters.Add("@ID", SqlDbType.Int).Value = this.incomeId;
-                    command.Parameters.Add("@userID", SqlDbType.Int).Value = this.userId;
-                    command.Parameters.Add("@cash", SqlDbType.Money).Value = this.cash;
-                    command.Parameters.Add("@date", SqlDbType.Date).Value = this.date;
-                    command.Parameters.Add("@typeID", SqlDbType.Int).Value = this.incomeTypeId;
+                {           
+                    try
+                    {
+                        connect.OpenConnection();
+                        string sqlQuery = "insert into Incomes(ID, userID, cash, incomeDate, incomeTypeID)" +
+                                           "values(@ID, @userID, @cash, @date, @typeId);";
+                        command.Parameters.Add("@ID", SqlDbType.Int).Value = this.incomeId;
+                        command.Parameters.Add("@userID", SqlDbType.Int).Value = this.userId;
+                        command.Parameters.Add("@cash", SqlDbType.Money).Value = this.cash;
+                        command.Parameters.Add("@date", SqlDbType.Date).Value = this.date;
+                        command.Parameters.Add("@typeID", SqlDbType.Int).Value = this.incomeTypeId;
 
-                    command.Connection = connect.GetConnection();
-                    command.CommandText = sqlQuery;
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Your income was succesful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    connect.CloseConnection();
+                        command.Connection = connect.GetConnection();
+                        command.CommandText = sqlQuery;
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Your income was succesful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        connect.CloseConnection();
+                    }
+                    catch(SqlException e)
+                    {
+                        MessageBox.Show("You enter the existing ID or incorrect typeId", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect date format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
             catch (FormatException e)
             {
-                MessageBox.Show("Some field are empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
