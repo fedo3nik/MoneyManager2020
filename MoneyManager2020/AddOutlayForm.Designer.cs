@@ -56,19 +56,20 @@
             // AddButton
             // 
             this.AddButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.AddButton.Location = new System.Drawing.Point(13, 215);
+            this.AddButton.Location = new System.Drawing.Point(2, 222);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(121, 56);
             this.AddButton.TabIndex = 25;
             this.AddButton.Text = "Add Outlay";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // OutlayTypeIdLabel
             // 
             this.OutlayTypeIdLabel.AutoSize = true;
             this.OutlayTypeIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.OutlayTypeIdLabel.ForeColor = System.Drawing.Color.Cornsilk;
-            this.OutlayTypeIdLabel.Location = new System.Drawing.Point(10, 163);
+            this.OutlayTypeIdLabel.Location = new System.Drawing.Point(-1, 170);
             this.OutlayTypeIdLabel.Name = "OutlayTypeIdLabel";
             this.OutlayTypeIdLabel.Size = new System.Drawing.Size(135, 25);
             this.OutlayTypeIdLabel.TabIndex = 24;
@@ -79,7 +80,7 @@
             this.DateLabel.AutoSize = true;
             this.DateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DateLabel.ForeColor = System.Drawing.Color.Cornsilk;
-            this.DateLabel.Location = new System.Drawing.Point(10, 110);
+            this.DateLabel.Location = new System.Drawing.Point(-1, 117);
             this.DateLabel.Name = "DateLabel";
             this.DateLabel.Size = new System.Drawing.Size(53, 25);
             this.DateLabel.TabIndex = 23;
@@ -90,7 +91,7 @@
             this.CashLabel.AutoSize = true;
             this.CashLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CashLabel.ForeColor = System.Drawing.Color.Cornsilk;
-            this.CashLabel.Location = new System.Drawing.Point(10, 55);
+            this.CashLabel.Location = new System.Drawing.Point(-1, 62);
             this.CashLabel.Name = "CashLabel";
             this.CashLabel.Size = new System.Drawing.Size(59, 25);
             this.CashLabel.TabIndex = 22;
@@ -101,7 +102,7 @@
             this.IDLabel.AutoSize = true;
             this.IDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.IDLabel.ForeColor = System.Drawing.Color.Cornsilk;
-            this.IDLabel.Location = new System.Drawing.Point(10, 2);
+            this.IDLabel.Location = new System.Drawing.Point(-1, 9);
             this.IDLabel.Name = "IDLabel";
             this.IDLabel.Size = new System.Drawing.Size(31, 25);
             this.IDLabel.TabIndex = 21;
@@ -109,28 +110,28 @@
             // 
             // IncomeTypeIDTextBox
             // 
-            this.IncomeTypeIDTextBox.Location = new System.Drawing.Point(15, 187);
+            this.IncomeTypeIDTextBox.Location = new System.Drawing.Point(4, 194);
             this.IncomeTypeIDTextBox.Name = "IncomeTypeIDTextBox";
             this.IncomeTypeIDTextBox.Size = new System.Drawing.Size(100, 22);
             this.IncomeTypeIDTextBox.TabIndex = 20;
             // 
             // DateTextBox
             // 
-            this.DateTextBox.Location = new System.Drawing.Point(13, 138);
+            this.DateTextBox.Location = new System.Drawing.Point(2, 145);
             this.DateTextBox.Name = "DateTextBox";
             this.DateTextBox.Size = new System.Drawing.Size(100, 22);
             this.DateTextBox.TabIndex = 19;
             // 
             // CashTextBox
             // 
-            this.CashTextBox.Location = new System.Drawing.Point(13, 83);
+            this.CashTextBox.Location = new System.Drawing.Point(2, 90);
             this.CashTextBox.Name = "CashTextBox";
             this.CashTextBox.Size = new System.Drawing.Size(102, 22);
             this.CashTextBox.TabIndex = 18;
             // 
             // IDTextBox
             // 
-            this.IDTextBox.Location = new System.Drawing.Point(13, 30);
+            this.IDTextBox.Location = new System.Drawing.Point(2, 37);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(100, 22);
             this.IDTextBox.TabIndex = 17;
@@ -151,7 +152,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(485, 272);
+            this.ClientSize = new System.Drawing.Size(485, 292);
             this.Controls.Add(this.OutlayTypesLabel);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.OutlayTypeIdLabel);
@@ -165,6 +166,7 @@
             this.Controls.Add(this.DataGridViewOutlayTypes);
             this.Name = "AddOutlayForm";
             this.Text = "AddOutlayForm";
+            this.Load += new System.EventHandler(this.AddOutlayForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewOutlayTypes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -179,10 +181,10 @@
         public System.Windows.Forms.Label DateLabel;
         public System.Windows.Forms.Label CashLabel;
         public System.Windows.Forms.Label IDLabel;
-        private System.Windows.Forms.TextBox IncomeTypeIDTextBox;
-        private System.Windows.Forms.TextBox DateTextBox;
-        private System.Windows.Forms.TextBox CashTextBox;
-        private System.Windows.Forms.TextBox IDTextBox;
-        private System.Windows.Forms.DataGridView DataGridViewOutlayTypes;
+        public System.Windows.Forms.TextBox IncomeTypeIDTextBox;
+        public System.Windows.Forms.TextBox DateTextBox;
+        public System.Windows.Forms.TextBox CashTextBox;
+        public System.Windows.Forms.TextBox IDTextBox;
+        public System.Windows.Forms.DataGridView DataGridViewOutlayTypes;
     }
 }

@@ -10,35 +10,35 @@ using System.Text.RegularExpressions;
 
 namespace MoneyManager2020.FormsClasses
 {
-    public class AddIncomeClass
+    public class AddOutlayClass
     {
         private int userId;
-        private int incomeId;
+        private int outlayId;
         private double cash;
         private string date;
-        private int incomeTypeId;
+        private int outlayTypeId;
+        private AddOutlayForm activeForm;
         private Menu activeMenu;
-        private AddIncomeForm activeForm;
         private Connect connect = Connect.GetInstance();
         private SqlCommand command = new SqlCommand();
 
-        public AddIncomeClass(int userId, AddIncomeForm form, Menu menu)
+        public AddOutlayClass(int userId, AddOutlayForm form, Menu menu)
         {
             this.userId = userId;
             this.activeForm = form;
             this.activeMenu = menu;
         }
 
-        public void ShowIncomeTypes()
+        public void ShowOutlayTypes()
         {
             SqlDataAdapter adapter;
             DataSet dataSet;
-            string sqlQuery = "select * from Income_Types;";
+            string sqlQuery = "select * from Outlay_Types;";
             adapter = new SqlDataAdapter(sqlQuery, connect.GetConnection());
             dataSet = new DataSet();
             connect.OpenConnection();
-            adapter.Fill(dataSet, "Income_Types");
-            activeForm.DataGridViewIncomeTypes.DataSource = dataSet.Tables["Income_Types"];
+            adapter.Fill(dataSet, "Outlay_Types");
+            activeForm.DataGridViewOutlayTypes.DataSource = dataSet.Tables["Outlay_Types"];
             connect.CloseConnection();
         }
 
@@ -48,33 +48,32 @@ namespace MoneyManager2020.FormsClasses
             {
                 string datePattern = @"(0?[1-9]|[12][0-9]|3[01]).(0?[1-9]|1[012]).((19|20)\d\d)";
 
-                this.incomeId = Convert.ToInt32(activeForm.IDTextBox.Text);
+                this.outlayId = Convert.ToInt32(activeForm.IDTextBox.Text);
                 this.cash = Convert.ToDouble(activeForm.CashTextBox.Text);
                 this.date = activeForm.DateTextBox.Text;
-                this.incomeTypeId = Convert.ToInt32(activeForm.IncomeTypeIDTextBox.Text);
+                this.outlayTypeId = Convert.ToInt32(activeForm.IncomeTypeIDTextBox.Text);
 
-                if(Regex.IsMatch(this.date, datePattern, RegexOptions.IgnoreCase))
-                {           
+                if (Regex.IsMatch(this.date, datePattern, RegexOptions.IgnoreCase))
+                {
                     try
                     {
                         connect.OpenConnection();
-                        string sqlQuery = "insert into Incomes(ID, userID, cash, incomeDate, incomeTypeID)" +
+                        string sqlQuery = "insert into Outlays(ID, userID, cash, outlayDate, outlayTypeID)" +
                                            "values(@ID, @userID, @cash, @date, @typeId);\n" +
-                                           "update Users set Users.cash = Users.cash + @cash where ID = @userID;";
-                        command.Parameters.Add("@ID", SqlDbType.Int).Value = this.incomeId;
+                                           "update Users set Users.cash = Users.cash - @cash where ID = @userID;";
+                        command.Parameters.Add("@ID", SqlDbType.Int).Value = this.outlayId;
                         command.Parameters.Add("@userID", SqlDbType.Int).Value = this.userId;
                         command.Parameters.Add("@cash", SqlDbType.Money).Value = this.cash;
                         command.Parameters.Add("@date", SqlDbType.Date).Value = this.date;
-                        command.Parameters.Add("@typeID", SqlDbType.Int).Value = this.incomeTypeId;
+                        command.Parameters.Add("@typeID", SqlDbType.Int).Value = this.outlayTypeId;
 
                         command.Connection = connect.GetConnection();
                         command.CommandText = sqlQuery;
                         command.ExecuteNonQuery();
-                        MessageBox.Show("Your income was succesful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Your outlay was succesful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         connect.CloseConnection();
-
                     }
-                    catch(SqlException e)
+                    catch (SqlException e)
                     {
                         MessageBox.Show("You enter the existing ID or incorrect typeId", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         activeForm.Close();
@@ -89,7 +88,9 @@ namespace MoneyManager2020.FormsClasses
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                activeForm.Hide();
             }
         }
+
     }
 }

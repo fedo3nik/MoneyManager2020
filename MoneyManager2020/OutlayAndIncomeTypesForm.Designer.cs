@@ -30,23 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.IncomeTypesDataGridView = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incomeTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataBaseUML = new MoneyManager2020.DataBaseUML();
             this.income_TypesTableAdapter = new MoneyManager2020.DataBaseUMLTableAdapters.Income_TypesTableAdapter();
             this.OutlayTypesDataGridView = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.outlayTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.outlay_TypesTableAdapter = new MoneyManager2020.DataBaseUMLTableAdapters.Outlay_TypesTableAdapter();
             this.IncomeIdLabel = new System.Windows.Forms.Label();
             this.IncomeIdTextBox = new System.Windows.Forms.TextBox();
             this.IncomeDescriptionLabel = new System.Windows.Forms.Label();
             this.IncomeDescription = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.OutlayDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.OutlayIdTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.AddIncomeButton = new System.Windows.Forms.Button();
             this.DeleteIncomeButton = new System.Windows.Forms.Button();
@@ -61,34 +57,13 @@
             // 
             // IncomeTypesDataGridView
             // 
-            this.IncomeTypesDataGridView.AutoGenerateColumns = false;
             this.IncomeTypesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.IncomeTypesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.descriptDataGridViewTextBoxColumn});
-            this.IncomeTypesDataGridView.DataSource = this.incomeTypesBindingSource;
             this.IncomeTypesDataGridView.Location = new System.Drawing.Point(174, 90);
             this.IncomeTypesDataGridView.Name = "IncomeTypesDataGridView";
             this.IncomeTypesDataGridView.RowHeadersWidth = 25;
             this.IncomeTypesDataGridView.RowTemplate.Height = 24;
             this.IncomeTypesDataGridView.Size = new System.Drawing.Size(220, 150);
             this.IncomeTypesDataGridView.TabIndex = 0;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Width = 35;
-            // 
-            // descriptDataGridViewTextBoxColumn
-            // 
-            this.descriptDataGridViewTextBoxColumn.DataPropertyName = "descript";
-            this.descriptDataGridViewTextBoxColumn.HeaderText = "descript";
-            this.descriptDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptDataGridViewTextBoxColumn.Name = "descriptDataGridViewTextBoxColumn";
-            this.descriptDataGridViewTextBoxColumn.Width = 160;
             // 
             // incomeTypesBindingSource
             // 
@@ -106,34 +81,13 @@
             // 
             // OutlayTypesDataGridView
             // 
-            this.OutlayTypesDataGridView.AutoGenerateColumns = false;
             this.OutlayTypesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OutlayTypesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn1,
-            this.descriptDataGridViewTextBoxColumn1});
-            this.OutlayTypesDataGridView.DataSource = this.outlayTypesBindingSource;
             this.OutlayTypesDataGridView.Location = new System.Drawing.Point(400, 90);
             this.OutlayTypesDataGridView.Name = "OutlayTypesDataGridView";
             this.OutlayTypesDataGridView.RowHeadersWidth = 25;
             this.OutlayTypesDataGridView.RowTemplate.Height = 24;
             this.OutlayTypesDataGridView.Size = new System.Drawing.Size(220, 150);
             this.OutlayTypesDataGridView.TabIndex = 1;
-            // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.Width = 35;
-            // 
-            // descriptDataGridViewTextBoxColumn1
-            // 
-            this.descriptDataGridViewTextBoxColumn1.DataPropertyName = "descript";
-            this.descriptDataGridViewTextBoxColumn1.HeaderText = "descript";
-            this.descriptDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.descriptDataGridViewTextBoxColumn1.Name = "descriptDataGridViewTextBoxColumn1";
-            this.descriptDataGridViewTextBoxColumn1.Width = 160;
             // 
             // outlayTypesBindingSource
             // 
@@ -180,12 +134,12 @@
             this.IncomeDescription.Size = new System.Drawing.Size(100, 22);
             this.IncomeDescription.TabIndex = 5;
             // 
-            // textBox2
+            // OutlayDescriptionTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(688, 205);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 9;
+            this.OutlayDescriptionTextBox.Location = new System.Drawing.Point(688, 205);
+            this.OutlayDescriptionTextBox.Name = "OutlayDescriptionTextBox";
+            this.OutlayDescriptionTextBox.Size = new System.Drawing.Size(100, 22);
+            this.OutlayDescriptionTextBox.TabIndex = 9;
             // 
             // label1
             // 
@@ -198,12 +152,12 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Description ";
             // 
-            // textBox3
+            // OutlayIdTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(688, 119);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 7;
+            this.OutlayIdTextBox.Location = new System.Drawing.Point(688, 119);
+            this.OutlayIdTextBox.Name = "OutlayIdTextBox";
+            this.OutlayIdTextBox.Size = new System.Drawing.Size(100, 22);
+            this.OutlayIdTextBox.TabIndex = 7;
             // 
             // label2
             // 
@@ -224,6 +178,7 @@
             this.AddIncomeButton.TabIndex = 10;
             this.AddIncomeButton.Text = "Add income";
             this.AddIncomeButton.UseVisualStyleBackColor = true;
+            this.AddIncomeButton.Click += new System.EventHandler(this.AddIncomeButton_Click);
             // 
             // DeleteIncomeButton
             // 
@@ -233,6 +188,7 @@
             this.DeleteIncomeButton.TabIndex = 11;
             this.DeleteIncomeButton.Text = "Delete income";
             this.DeleteIncomeButton.UseVisualStyleBackColor = true;
+            this.DeleteIncomeButton.Click += new System.EventHandler(this.DeleteIncomeButton_Click);
             // 
             // AddOutlayButton
             // 
@@ -242,6 +198,7 @@
             this.AddOutlayButton.TabIndex = 12;
             this.AddOutlayButton.Text = "Add outlay";
             this.AddOutlayButton.UseVisualStyleBackColor = true;
+            this.AddOutlayButton.Click += new System.EventHandler(this.AddOutlayButton_Click);
             // 
             // DeleteOutlayButton
             // 
@@ -251,6 +208,7 @@
             this.DeleteOutlayButton.TabIndex = 13;
             this.DeleteOutlayButton.Text = "Delete outlay";
             this.DeleteOutlayButton.UseVisualStyleBackColor = true;
+            this.DeleteOutlayButton.Click += new System.EventHandler(this.DeleteOutlayButton_Click);
             // 
             // OutlayAndIncomeTypesForm
             // 
@@ -262,9 +220,9 @@
             this.Controls.Add(this.AddOutlayButton);
             this.Controls.Add(this.DeleteIncomeButton);
             this.Controls.Add(this.AddIncomeButton);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.OutlayDescriptionTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.OutlayIdTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.IncomeDescription);
             this.Controls.Add(this.IncomeDescriptionLabel);
@@ -286,29 +244,24 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView IncomeTypesDataGridView;
         private DataBaseUML dataBaseUML;
         private System.Windows.Forms.BindingSource incomeTypesBindingSource;
         private DataBaseUMLTableAdapters.Income_TypesTableAdapter income_TypesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView OutlayTypesDataGridView;
         private System.Windows.Forms.BindingSource outlayTypesBindingSource;
         private DataBaseUMLTableAdapters.Outlay_TypesTableAdapter outlay_TypesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Label IncomeIdLabel;
-        private System.Windows.Forms.TextBox IncomeIdTextBox;
         private System.Windows.Forms.Label IncomeDescriptionLabel;
-        private System.Windows.Forms.TextBox IncomeDescription;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button AddIncomeButton;
         private System.Windows.Forms.Button DeleteIncomeButton;
         private System.Windows.Forms.Button AddOutlayButton;
         private System.Windows.Forms.Button DeleteOutlayButton;
+        public System.Windows.Forms.DataGridView IncomeTypesDataGridView;
+        public System.Windows.Forms.DataGridView OutlayTypesDataGridView;
+        public System.Windows.Forms.TextBox IncomeIdTextBox;
+        public System.Windows.Forms.TextBox IncomeDescription;
+        public System.Windows.Forms.TextBox OutlayIdTextBox;
+        public System.Windows.Forms.TextBox OutlayDescriptionTextBox;
     }
 }

@@ -28,15 +28,15 @@ namespace MoneyManager2020
             this.user = user;
             this.id = user.ID;
             this.email = user.Email;
-            this.cash = user.Cash;
+            this.cash = GetCash();
             this.activeMenu = menu;
             this.lastIncome = GetLastIncome();
             this.lastIncomeDate = GetLastIncomeDate();
             this.lastOutlay = GetLastOutlay();
             this.lastOutlayDate = GetLastOutlayDate();
 
+            ShowCash();
             activeMenu.emailLabel.Text = email;
-            activeMenu.CashLabel.Text = cash.ToString();
             ShowPlanTable();
             activeMenu.LastIncomeLabel.Text = lastIncome.ToString();
             activeMenu.IncomeDateLabel.Text = lastIncomeDate;
@@ -44,9 +44,18 @@ namespace MoneyManager2020
             activeMenu.OutlayDateLabel.Text = lastOutlayDate;
         }
 
+        public MainMenu ActiveMenu
+        {
+            get => this.activeMenu;
+        }
         public int Id
         {
             get => this.id;
+        }
+        public double Cash
+        {
+            get => this.cash;
+            set => this.cash = GetCash();
         }
 
         public void ShowPlanTable()
@@ -64,10 +73,32 @@ namespace MoneyManager2020
             connect.CloseConnection();
         }
 
+        public double GetCash()
+        {
+            double tempCash;
+            string sqlQuery = "select cash from Users where ID = " + this.id + ";";
+            connect.OpenConnection();
+            command.CommandText = sqlQuery;
+            command.Connection = connect.GetConnection();
+
+            reader = command.ExecuteReader();
+            while(reader.Read())
+            {
+                tempCash = Convert.ToDouble(reader["cash"]);
+                reader.Close();
+                connect.CloseConnection();
+                return tempCash;
+            }
+            reader.Close();
+            return 0;
+        }
+
+        public void ShowCash() => activeMenu.CashLabel.Text = this.cash.ToString();
+
         public double GetLastIncome()
         {
             double tempIncome;
-            string sqlQuery = "select top 1 cash from Incomes where userID =\'" + this.id + "\';";
+            string sqlQuery = "select top 1 cash from Incomes where userID =" + this.id + ";";
             connect.OpenConnection();
             command.CommandText = sqlQuery;
             command.Connection = connect.GetConnection();

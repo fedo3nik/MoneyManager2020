@@ -131,6 +131,7 @@
             this.EditPlanButton.TabIndex = 7;
             this.EditPlanButton.Text = "Edit your outlay plan";
             this.EditPlanButton.UseVisualStyleBackColor = false;
+            this.EditPlanButton.Click += new System.EventHandler(this.EditPlanButton_Click);
             // 
             // SetIncomesOutlaysButton
             // 
@@ -141,6 +142,7 @@
             this.SetIncomesOutlaysButton.TabIndex = 8;
             this.SetIncomesOutlaysButton.Text = "Set new Outlays or Incomes";
             this.SetIncomesOutlaysButton.UseVisualStyleBackColor = false;
+            this.SetIncomesOutlaysButton.Click += new System.EventHandler(this.SetIncomesOutlaysButton_Click);
             // 
             // DataGridViewPlan
             // 
@@ -158,7 +160,7 @@
             this.CashLabel.AutoSize = true;
             this.CashLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CashLabel.ForeColor = System.Drawing.Color.Orange;
-            this.CashLabel.Location = new System.Drawing.Point(148, 45);
+            this.CashLabel.Location = new System.Drawing.Point(143, 45);
             this.CashLabel.Name = "CashLabel";
             this.CashLabel.Size = new System.Drawing.Size(50, 25);
             this.CashLabel.TabIndex = 10;
@@ -170,7 +172,7 @@
             this.DollarLabel.AutoSize = true;
             this.DollarLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DollarLabel.ForeColor = System.Drawing.Color.Orange;
-            this.DollarLabel.Location = new System.Drawing.Point(190, 45);
+            this.DollarLabel.Location = new System.Drawing.Point(258, 45);
             this.DollarLabel.Name = "DollarLabel";
             this.DollarLabel.Size = new System.Drawing.Size(23, 25);
             this.DollarLabel.TabIndex = 11;

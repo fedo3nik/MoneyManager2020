@@ -15,7 +15,9 @@ namespace MoneyManager2020
     public partial class AddIncomeForm : Form
     {
         AddIncomeClass addIncome;
+        MainMenu menu;
         public void SetClass(AddIncomeClass income) => addIncome = income;
+        public void SetMenu(MainMenu mainMenu) => menu = mainMenu;
 
         public AddIncomeForm()
         {
@@ -31,5 +33,6 @@ namespace MoneyManager2020
         {
             addIncome.Add();
         }
+
     }
 }

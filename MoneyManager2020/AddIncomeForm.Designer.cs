@@ -165,7 +165,7 @@
             this.Controls.Add(this.IDTextBox);
             this.Controls.Add(this.DataGridViewIncomeTypes);
             this.Name = "AddIncomeForm";
-            this.Text = "AddIncomeForm";
+            this.Text = "Add Income";
             this.Load += new System.EventHandler(this.AddIncomeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewIncomeTypes)).EndInit();
             this.ResumeLayout(false);
