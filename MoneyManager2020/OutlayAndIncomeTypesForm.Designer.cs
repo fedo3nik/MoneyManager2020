@@ -48,6 +48,8 @@
             this.DeleteIncomeButton = new System.Windows.Forms.Button();
             this.AddOutlayButton = new System.Windows.Forms.Button();
             this.DeleteOutlayButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IncomeTypesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomeTypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBaseUML)).BeginInit();
@@ -58,7 +60,7 @@
             // IncomeTypesDataGridView
             // 
             this.IncomeTypesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.IncomeTypesDataGridView.Location = new System.Drawing.Point(174, 90);
+            this.IncomeTypesDataGridView.Location = new System.Drawing.Point(168, 43);
             this.IncomeTypesDataGridView.Name = "IncomeTypesDataGridView";
             this.IncomeTypesDataGridView.RowHeadersWidth = 25;
             this.IncomeTypesDataGridView.RowTemplate.Height = 24;
@@ -82,7 +84,7 @@
             // OutlayTypesDataGridView
             // 
             this.OutlayTypesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OutlayTypesDataGridView.Location = new System.Drawing.Point(400, 90);
+            this.OutlayTypesDataGridView.Location = new System.Drawing.Point(394, 43);
             this.OutlayTypesDataGridView.Name = "OutlayTypesDataGridView";
             this.OutlayTypesDataGridView.RowHeadersWidth = 25;
             this.OutlayTypesDataGridView.RowTemplate.Height = 24;
@@ -103,7 +105,7 @@
             this.IncomeIdLabel.AutoSize = true;
             this.IncomeIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.IncomeIdLabel.ForeColor = System.Drawing.Color.Cornsilk;
-            this.IncomeIdLabel.Location = new System.Drawing.Point(7, 90);
+            this.IncomeIdLabel.Location = new System.Drawing.Point(1, 43);
             this.IncomeIdLabel.Name = "IncomeIdLabel";
             this.IncomeIdLabel.Size = new System.Drawing.Size(31, 25);
             this.IncomeIdLabel.TabIndex = 2;
@@ -111,7 +113,7 @@
             // 
             // IncomeIdTextBox
             // 
-            this.IncomeIdTextBox.Location = new System.Drawing.Point(12, 119);
+            this.IncomeIdTextBox.Location = new System.Drawing.Point(6, 72);
             this.IncomeIdTextBox.Name = "IncomeIdTextBox";
             this.IncomeIdTextBox.Size = new System.Drawing.Size(100, 22);
             this.IncomeIdTextBox.TabIndex = 3;
@@ -121,7 +123,7 @@
             this.IncomeDescriptionLabel.AutoSize = true;
             this.IncomeDescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.IncomeDescriptionLabel.ForeColor = System.Drawing.Color.Cornsilk;
-            this.IncomeDescriptionLabel.Location = new System.Drawing.Point(7, 167);
+            this.IncomeDescriptionLabel.Location = new System.Drawing.Point(1, 120);
             this.IncomeDescriptionLabel.Name = "IncomeDescriptionLabel";
             this.IncomeDescriptionLabel.Size = new System.Drawing.Size(114, 25);
             this.IncomeDescriptionLabel.TabIndex = 4;
@@ -129,14 +131,14 @@
             // 
             // IncomeDescription
             // 
-            this.IncomeDescription.Location = new System.Drawing.Point(12, 205);
+            this.IncomeDescription.Location = new System.Drawing.Point(6, 158);
             this.IncomeDescription.Name = "IncomeDescription";
             this.IncomeDescription.Size = new System.Drawing.Size(100, 22);
             this.IncomeDescription.TabIndex = 5;
             // 
             // OutlayDescriptionTextBox
             // 
-            this.OutlayDescriptionTextBox.Location = new System.Drawing.Point(688, 205);
+            this.OutlayDescriptionTextBox.Location = new System.Drawing.Point(682, 158);
             this.OutlayDescriptionTextBox.Name = "OutlayDescriptionTextBox";
             this.OutlayDescriptionTextBox.Size = new System.Drawing.Size(100, 22);
             this.OutlayDescriptionTextBox.TabIndex = 9;
@@ -146,7 +148,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(683, 167);
+            this.label1.Location = new System.Drawing.Point(677, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 25);
             this.label1.TabIndex = 8;
@@ -154,7 +156,7 @@
             // 
             // OutlayIdTextBox
             // 
-            this.OutlayIdTextBox.Location = new System.Drawing.Point(688, 119);
+            this.OutlayIdTextBox.Location = new System.Drawing.Point(682, 72);
             this.OutlayIdTextBox.Name = "OutlayIdTextBox";
             this.OutlayIdTextBox.Size = new System.Drawing.Size(100, 22);
             this.OutlayIdTextBox.TabIndex = 7;
@@ -164,7 +166,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(683, 90);
+            this.label2.Location = new System.Drawing.Point(677, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 25);
             this.label2.TabIndex = 6;
@@ -172,7 +174,7 @@
             // 
             // AddIncomeButton
             // 
-            this.AddIncomeButton.Location = new System.Drawing.Point(174, 246);
+            this.AddIncomeButton.Location = new System.Drawing.Point(168, 199);
             this.AddIncomeButton.Name = "AddIncomeButton";
             this.AddIncomeButton.Size = new System.Drawing.Size(75, 45);
             this.AddIncomeButton.TabIndex = 10;
@@ -182,7 +184,7 @@
             // 
             // DeleteIncomeButton
             // 
-            this.DeleteIncomeButton.Location = new System.Drawing.Point(319, 246);
+            this.DeleteIncomeButton.Location = new System.Drawing.Point(313, 199);
             this.DeleteIncomeButton.Name = "DeleteIncomeButton";
             this.DeleteIncomeButton.Size = new System.Drawing.Size(75, 45);
             this.DeleteIncomeButton.TabIndex = 11;
@@ -192,7 +194,7 @@
             // 
             // AddOutlayButton
             // 
-            this.AddOutlayButton.Location = new System.Drawing.Point(400, 246);
+            this.AddOutlayButton.Location = new System.Drawing.Point(394, 199);
             this.AddOutlayButton.Name = "AddOutlayButton";
             this.AddOutlayButton.Size = new System.Drawing.Size(75, 45);
             this.AddOutlayButton.TabIndex = 12;
@@ -202,7 +204,7 @@
             // 
             // DeleteOutlayButton
             // 
-            this.DeleteOutlayButton.Location = new System.Drawing.Point(545, 246);
+            this.DeleteOutlayButton.Location = new System.Drawing.Point(539, 199);
             this.DeleteOutlayButton.Name = "DeleteOutlayButton";
             this.DeleteOutlayButton.Size = new System.Drawing.Size(75, 45);
             this.DeleteOutlayButton.TabIndex = 13;
@@ -210,12 +212,36 @@
             this.DeleteOutlayButton.UseVisualStyleBackColor = true;
             this.DeleteOutlayButton.Click += new System.EventHandler(this.DeleteOutlayButton_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label3.Location = new System.Drawing.Point(172, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 25);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Income types";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label4.Location = new System.Drawing.Point(389, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(121, 25);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Outlay types";
+            // 
             // OutlayAndIncomeTypesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(800, 309);
+            this.ClientSize = new System.Drawing.Size(800, 277);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.DeleteOutlayButton);
             this.Controls.Add(this.AddOutlayButton);
             this.Controls.Add(this.DeleteIncomeButton);
@@ -263,5 +289,7 @@
         public System.Windows.Forms.TextBox IncomeDescription;
         public System.Windows.Forms.TextBox OutlayIdTextBox;
         public System.Windows.Forms.TextBox OutlayDescriptionTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -72,6 +72,7 @@ namespace MoneyManager2020.FormsClasses
                     MessageBox.Show("New income type was successfuly added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     connect.CloseConnection();
                     ShowIncomesTypes();
+                    activeForm.Close();
                 }
                 catch(SqlException e)
                 {
@@ -82,6 +83,7 @@ namespace MoneyManager2020.FormsClasses
             catch(FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                activeForm.Close();
             }
 
 
@@ -118,8 +120,6 @@ namespace MoneyManager2020.FormsClasses
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         public void DeleteIncomeType()
@@ -140,6 +140,7 @@ namespace MoneyManager2020.FormsClasses
                     MessageBox.Show("Income type was successfuly deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     connect.CloseConnection();
                     ShowIncomesTypes();
+                    activeForm.Close();
                 }
                 catch (SqlException e)
                 {
@@ -150,6 +151,7 @@ namespace MoneyManager2020.FormsClasses
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                activeForm.Close();
             }
         }
 
@@ -171,6 +173,7 @@ namespace MoneyManager2020.FormsClasses
                     MessageBox.Show("Outlay type was successfuly deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     connect.CloseConnection();
                     ShowIncomesTypes();
+                    activeForm.Close();
                 }
                 catch (SqlException e)
                 {
@@ -181,6 +184,7 @@ namespace MoneyManager2020.FormsClasses
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                activeForm.Close();
             }
         }
 

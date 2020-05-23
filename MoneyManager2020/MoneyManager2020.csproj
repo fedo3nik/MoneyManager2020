@@ -70,6 +70,7 @@
     <Compile Include="FormsClasses\AddIncomeClass.cs" />
     <Compile Include="FormsClasses\AddOutlayClass.cs" />
     <Compile Include="FormsClasses\OutlayAndIncomeClass.cs" />
+    <Compile Include="FormsClasses\PlanClass.cs" />
     <Compile Include="MenuClasses\AdminMenu.cs" />
     <Compile Include="UserClasses\Admin.cs" />
     <Compile Include="ConnectClass\Connect.cs" />

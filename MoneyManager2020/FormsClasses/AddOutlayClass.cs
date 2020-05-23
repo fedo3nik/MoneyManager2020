@@ -72,6 +72,7 @@ namespace MoneyManager2020.FormsClasses
                         command.ExecuteNonQuery();
                         MessageBox.Show("Your outlay was succesful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         connect.CloseConnection();
+                        activeForm.Close();
                     }
                     catch (SqlException e)
                     {
@@ -82,13 +83,14 @@ namespace MoneyManager2020.FormsClasses
                 else
                 {
                     MessageBox.Show("Incorrect date format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    activeForm.Close();
                 }
 
             }
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                activeForm.Hide();
+                activeForm.Close();
             }
         }
 

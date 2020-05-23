@@ -77,6 +77,8 @@ namespace MoneyManager2020
         private void EditPlanButton_Click(object sender, EventArgs e)
         {
             PlanForm form = new PlanForm();
+            PlanClass formClass = new PlanClass(menu.Id, menu, form);
+            form.SetClass(formClass);
             form.Show();
         }
     }
