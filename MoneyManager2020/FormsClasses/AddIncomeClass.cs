@@ -72,6 +72,12 @@ namespace MoneyManager2020.FormsClasses
                         command.ExecuteNonQuery();
                         MessageBox.Show("Your income was succesful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         connect.CloseConnection();
+                        activeMenu.Cash = activeMenu.GetCash();
+                        activeMenu.ShowCash();
+                        activeMenu.LastIncome = activeMenu.GetLastIncome();
+                        activeMenu.LastIncomeDate = activeMenu.GetLastIncomeDate();
+                        activeMenu.ShowLastIncome();
+                        activeMenu.ShowLastIncomeDate();
                         activeForm.Close();
 
                     }

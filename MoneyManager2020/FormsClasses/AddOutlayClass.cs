@@ -72,6 +72,13 @@ namespace MoneyManager2020.FormsClasses
                         command.ExecuteNonQuery();
                         MessageBox.Show("Your outlay was succesful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         connect.CloseConnection();
+                        activeMenu.Cash = activeMenu.GetCash();
+                        activeMenu.ShowCash();
+                        activeMenu.LastOutlay = activeMenu.GetLastOutlay();
+                        activeMenu.LastOutlayDate = activeMenu.GetLastOutlayDate();
+                        activeMenu.ShowLastOutlay();
+                        activeMenu.ShowLastOutlayDate();
+
                         activeForm.Close();
                     }
                     catch (SqlException e)

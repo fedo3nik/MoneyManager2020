@@ -76,6 +76,7 @@
             // 
             // UsersListDataGridView
             // 
+            this.UsersListDataGridView.BackgroundColor = System.Drawing.Color.Aqua;
             this.UsersListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UsersListDataGridView.Location = new System.Drawing.Point(439, 94);
             this.UsersListDataGridView.Name = "UsersListDataGridView";
@@ -86,6 +87,7 @@
             // 
             // IncomeDataGridView
             // 
+            this.IncomeDataGridView.BackgroundColor = System.Drawing.Color.Aqua;
             this.IncomeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.IncomeDataGridView.Location = new System.Drawing.Point(12, 94);
             this.IncomeDataGridView.Name = "IncomeDataGridView";
@@ -96,6 +98,7 @@
             // 
             // OutlayDataGridView
             // 
+            this.OutlayDataGridView.BackgroundColor = System.Drawing.Color.Aqua;
             this.OutlayDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OutlayDataGridView.Location = new System.Drawing.Point(200, 94);
             this.OutlayDataGridView.Name = "OutlayDataGridView";

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Xml.Schema;
 
 namespace MoneyManager2020
 {
@@ -38,10 +39,10 @@ namespace MoneyManager2020
             ShowCash();
             activeMenu.emailLabel.Text = email;
             ShowPlanTable();
-            activeMenu.LastIncomeLabel.Text = lastIncome.ToString();
-            activeMenu.IncomeDateLabel.Text = lastIncomeDate;
-            activeMenu.LastOutlayLabel.Text = lastOutlay.ToString();
-            activeMenu.OutlayDateLabel.Text = lastOutlayDate;
+            ShowLastIncome();
+            ShowLastIncomeDate();
+            ShowLastOutlay();
+            ShowLastOutlayDate();
         }
 
         public MainMenu ActiveMenu
@@ -55,8 +56,30 @@ namespace MoneyManager2020
         public double Cash
         {
             get => this.cash;
-            set => this.cash = GetCash();
+            set => this.cash = value;
         }
+        public double LastIncome
+        {
+            get => this.lastIncome;
+            set => this.lastIncome = value;
+        }
+        public double LastOutlay
+        {
+            get => this.lastOutlay;
+            set => this.lastOutlay = value;
+        }
+        public string LastIncomeDate
+        {
+            get => this.lastIncomeDate;
+            set => this.lastIncomeDate = value;
+        }
+        public string LastOutlayDate
+        {
+            get => this.lastOutlayDate;
+            set => this.lastOutlayDate = value;
+        }
+
+        
 
         public void ShowPlanTable()
         {
@@ -93,12 +116,12 @@ namespace MoneyManager2020
             return 0;
         }
 
-        public void ShowCash() => activeMenu.CashLabel.Text = this.cash.ToString();
+        public void ShowCash() => activeMenu.CashLabel.Text = this.cash.ToString() + " $";
 
         public double GetLastIncome()
         {
             double tempIncome;
-            string sqlQuery = "select top 1 cash from Incomes where userID =" + this.id + ";";
+            string sqlQuery = "select top 1 cash from Incomes where userID =" + this.id + " order by ID desc;";
             connect.OpenConnection();
             command.CommandText = sqlQuery;
             command.Connection = connect.GetConnection();
@@ -115,10 +138,15 @@ namespace MoneyManager2020
             return 0;
         }
 
+        public void ShowLastIncome() => activeMenu.LastIncomeLabel.Text = this.lastIncome.ToString() + " $";
+        public void ShowLastOutlay() => activeMenu.LastOutlayLabel.Text = this.lastOutlay.ToString() + " $";
+        public void ShowLastIncomeDate() => activeMenu.IncomeDateLabel.Text = this.lastIncomeDate;
+        public void ShowLastOutlayDate() => activeMenu.OutlayDateLabel.Text = this.lastOutlayDate;
+
         public string GetLastIncomeDate()
         {
             string tempIncomeDate;
-            string sqlQuery = "select top 1 incomeDate from Incomes where userID =\'" + this.id + "\';";
+            string sqlQuery = "select top 1 incomeDate from Incomes where userID =" + this.id + " order by ID desc;";
             connect.OpenConnection();
             command.CommandText = sqlQuery;
             command.Connection = connect.GetConnection();
@@ -138,7 +166,7 @@ namespace MoneyManager2020
         public double GetLastOutlay()
         {
             double tempOutlay;
-            string sqlQuery = "select top 1 cash from Outlays where userID =\'" + this.id + "\';";
+            string sqlQuery = "select top 1 cash from Outlays where userID =" + this.id + " order by ID desc;";
             connect.OpenConnection();
             command.CommandText = sqlQuery;
             command.Connection = connect.GetConnection();
@@ -158,7 +186,7 @@ namespace MoneyManager2020
         public string GetLastOutlayDate()
         {
             string tempOutlayDate;
-            string sqlQuery = "select top 1 outlayDate from Outlays where userID =\'" + this.id + "\';";
+            string sqlQuery = "select top 1 outlayDate from Outlays where userID =" + this.id + " order by ID desc;";
             connect.OpenConnection();
             command.CommandText = sqlQuery;
             command.Connection = connect.GetConnection();

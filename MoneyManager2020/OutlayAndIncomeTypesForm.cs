@@ -36,14 +36,5 @@ namespace MoneyManager2020
             activeClass.AddOutlayType();
         }
 
-        private void DeleteIncomeButton_Click(object sender, EventArgs e)
-        {
-            activeClass.DeleteIncomeType();
-        }
-
-        private void DeleteOutlayButton_Click(object sender, EventArgs e)
-        {
-            activeClass.DeleteOutlayType();
-        }
     }
 }

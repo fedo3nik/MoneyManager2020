@@ -45,9 +45,7 @@
             this.OutlayIdTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.AddIncomeButton = new System.Windows.Forms.Button();
-            this.DeleteIncomeButton = new System.Windows.Forms.Button();
             this.AddOutlayButton = new System.Windows.Forms.Button();
-            this.DeleteOutlayButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IncomeTypesDataGridView)).BeginInit();
@@ -59,6 +57,7 @@
             // 
             // IncomeTypesDataGridView
             // 
+            this.IncomeTypesDataGridView.BackgroundColor = System.Drawing.Color.Aqua;
             this.IncomeTypesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.IncomeTypesDataGridView.Location = new System.Drawing.Point(168, 43);
             this.IncomeTypesDataGridView.Name = "IncomeTypesDataGridView";
@@ -83,6 +82,7 @@
             // 
             // OutlayTypesDataGridView
             // 
+            this.OutlayTypesDataGridView.BackgroundColor = System.Drawing.Color.Aqua;
             this.OutlayTypesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OutlayTypesDataGridView.Location = new System.Drawing.Point(394, 43);
             this.OutlayTypesDataGridView.Name = "OutlayTypesDataGridView";
@@ -174,43 +174,25 @@
             // 
             // AddIncomeButton
             // 
+            this.AddIncomeButton.BackColor = System.Drawing.Color.DarkCyan;
             this.AddIncomeButton.Location = new System.Drawing.Point(168, 199);
             this.AddIncomeButton.Name = "AddIncomeButton";
             this.AddIncomeButton.Size = new System.Drawing.Size(75, 45);
             this.AddIncomeButton.TabIndex = 10;
             this.AddIncomeButton.Text = "Add income";
-            this.AddIncomeButton.UseVisualStyleBackColor = true;
+            this.AddIncomeButton.UseVisualStyleBackColor = false;
             this.AddIncomeButton.Click += new System.EventHandler(this.AddIncomeButton_Click);
-            // 
-            // DeleteIncomeButton
-            // 
-            this.DeleteIncomeButton.Location = new System.Drawing.Point(313, 199);
-            this.DeleteIncomeButton.Name = "DeleteIncomeButton";
-            this.DeleteIncomeButton.Size = new System.Drawing.Size(75, 45);
-            this.DeleteIncomeButton.TabIndex = 11;
-            this.DeleteIncomeButton.Text = "Delete income";
-            this.DeleteIncomeButton.UseVisualStyleBackColor = true;
-            this.DeleteIncomeButton.Click += new System.EventHandler(this.DeleteIncomeButton_Click);
             // 
             // AddOutlayButton
             // 
-            this.AddOutlayButton.Location = new System.Drawing.Point(394, 199);
+            this.AddOutlayButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.AddOutlayButton.Location = new System.Drawing.Point(539, 199);
             this.AddOutlayButton.Name = "AddOutlayButton";
             this.AddOutlayButton.Size = new System.Drawing.Size(75, 45);
             this.AddOutlayButton.TabIndex = 12;
             this.AddOutlayButton.Text = "Add outlay";
-            this.AddOutlayButton.UseVisualStyleBackColor = true;
+            this.AddOutlayButton.UseVisualStyleBackColor = false;
             this.AddOutlayButton.Click += new System.EventHandler(this.AddOutlayButton_Click);
-            // 
-            // DeleteOutlayButton
-            // 
-            this.DeleteOutlayButton.Location = new System.Drawing.Point(539, 199);
-            this.DeleteOutlayButton.Name = "DeleteOutlayButton";
-            this.DeleteOutlayButton.Size = new System.Drawing.Size(75, 45);
-            this.DeleteOutlayButton.TabIndex = 13;
-            this.DeleteOutlayButton.Text = "Delete outlay";
-            this.DeleteOutlayButton.UseVisualStyleBackColor = true;
-            this.DeleteOutlayButton.Click += new System.EventHandler(this.DeleteOutlayButton_Click);
             // 
             // label3
             // 
@@ -242,9 +224,7 @@
             this.ClientSize = new System.Drawing.Size(800, 277);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.DeleteOutlayButton);
             this.Controls.Add(this.AddOutlayButton);
-            this.Controls.Add(this.DeleteIncomeButton);
             this.Controls.Add(this.AddIncomeButton);
             this.Controls.Add(this.OutlayDescriptionTextBox);
             this.Controls.Add(this.label1);
@@ -280,9 +260,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button AddIncomeButton;
-        private System.Windows.Forms.Button DeleteIncomeButton;
         private System.Windows.Forms.Button AddOutlayButton;
-        private System.Windows.Forms.Button DeleteOutlayButton;
         public System.Windows.Forms.DataGridView IncomeTypesDataGridView;
         public System.Windows.Forms.DataGridView OutlayTypesDataGridView;
         public System.Windows.Forms.TextBox IncomeIdTextBox;

@@ -36,9 +36,7 @@ namespace MoneyManager2020
             AddIncomeForm addIncomeForm = new AddIncomeForm();
             AddIncomeClass incomeClass = new AddIncomeClass(menu.Id, addIncomeForm, menu);
             addIncomeForm.SetClass(incomeClass);
-            addIncomeForm.Show();
-            menu.Cash = menu.GetCash();
-            menu.ShowCash();
+            addIncomeForm.ShowDialog();
         }
 
         private void OutlayButton_Click(object sender, EventArgs e)
@@ -46,9 +44,7 @@ namespace MoneyManager2020
             AddOutlayForm addOutlayForm = new AddOutlayForm();
             AddOutlayClass outlayClass = new AddOutlayClass(menu.Id, addOutlayForm, menu);
             addOutlayForm.SetClass(outlayClass);
-            addOutlayForm.Show();
-            menu.Cash = menu.GetCash();
-            menu.ShowCash();
+            addOutlayForm.ShowDialog();
         }
 
         private void IncomeDateLabel_Click(object sender, EventArgs e)

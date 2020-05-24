@@ -39,12 +39,9 @@
             this.SetIncomesOutlaysButton = new System.Windows.Forms.Button();
             this.DataGridViewPlan = new System.Windows.Forms.DataGridView();
             this.CashLabel = new System.Windows.Forms.Label();
-            this.DollarLabel = new System.Windows.Forms.Label();
             this.dataBaseUML = new MoneyManager2020.DataBaseUML();
             this.outlayPlanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.outlayPlanTableAdapter = new MoneyManager2020.DataBaseUMLTableAdapters.OutlayPlanTableAdapter();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.IncomeDateLabel = new System.Windows.Forms.Label();
             this.OutlayDateLabel = new System.Windows.Forms.Label();
             this.IncomeTextLabel = new System.Windows.Forms.Label();
@@ -103,6 +100,8 @@
             // IncomeButton
             // 
             this.IncomeButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.IncomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.IncomeButton.ForeColor = System.Drawing.Color.Coral;
             this.IncomeButton.Location = new System.Drawing.Point(12, 259);
             this.IncomeButton.Name = "IncomeButton";
             this.IncomeButton.Size = new System.Drawing.Size(121, 56);
@@ -114,6 +113,8 @@
             // OutlayButton
             // 
             this.OutlayButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.OutlayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OutlayButton.ForeColor = System.Drawing.Color.Coral;
             this.OutlayButton.Location = new System.Drawing.Point(139, 259);
             this.OutlayButton.Name = "OutlayButton";
             this.OutlayButton.Size = new System.Drawing.Size(121, 56);
@@ -125,9 +126,11 @@
             // EditPlanButton
             // 
             this.EditPlanButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.EditPlanButton.Location = new System.Drawing.Point(554, 259);
+            this.EditPlanButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditPlanButton.ForeColor = System.Drawing.Color.Coral;
+            this.EditPlanButton.Location = new System.Drawing.Point(513, 259);
             this.EditPlanButton.Name = "EditPlanButton";
-            this.EditPlanButton.Size = new System.Drawing.Size(121, 56);
+            this.EditPlanButton.Size = new System.Drawing.Size(158, 56);
             this.EditPlanButton.TabIndex = 7;
             this.EditPlanButton.Text = "Edit your outlay plan";
             this.EditPlanButton.UseVisualStyleBackColor = false;
@@ -136,9 +139,11 @@
             // SetIncomesOutlaysButton
             // 
             this.SetIncomesOutlaysButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.SetIncomesOutlaysButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SetIncomesOutlaysButton.ForeColor = System.Drawing.Color.Coral;
             this.SetIncomesOutlaysButton.Location = new System.Drawing.Point(320, 259);
             this.SetIncomesOutlaysButton.Name = "SetIncomesOutlaysButton";
-            this.SetIncomesOutlaysButton.Size = new System.Drawing.Size(121, 56);
+            this.SetIncomesOutlaysButton.Size = new System.Drawing.Size(147, 56);
             this.SetIncomesOutlaysButton.TabIndex = 8;
             this.SetIncomesOutlaysButton.Text = "Set new Outlays or Incomes";
             this.SetIncomesOutlaysButton.UseVisualStyleBackColor = false;
@@ -167,17 +172,6 @@
             this.CashLabel.Text = "zero";
             this.CashLabel.Click += new System.EventHandler(this.CashLabel_Click);
             // 
-            // DollarLabel
-            // 
-            this.DollarLabel.AutoSize = true;
-            this.DollarLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DollarLabel.ForeColor = System.Drawing.Color.Orange;
-            this.DollarLabel.Location = new System.Drawing.Point(258, 45);
-            this.DollarLabel.Name = "DollarLabel";
-            this.DollarLabel.Size = new System.Drawing.Size(23, 25);
-            this.DollarLabel.TabIndex = 11;
-            this.DollarLabel.Text = "$";
-            // 
             // dataBaseUML
             // 
             this.dataBaseUML.DataSetName = "DataBaseUML";
@@ -191,28 +185,6 @@
             // outlayPlanTableAdapter
             // 
             this.outlayPlanTableAdapter.ClearBeforeFill = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(64, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 25);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "$";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(64, 160);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 25);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "$";
             // 
             // IncomeDateLabel
             // 
@@ -281,9 +253,6 @@
             this.Controls.Add(this.IncomeTextLabel);
             this.Controls.Add(this.OutlayDateLabel);
             this.Controls.Add(this.IncomeDateLabel);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.DollarLabel);
             this.Controls.Add(this.CashLabel);
             this.Controls.Add(this.DataGridViewPlan);
             this.Controls.Add(this.SetIncomesOutlaysButton);
@@ -315,12 +284,9 @@
         private System.Windows.Forms.Button SetIncomesOutlaysButton;
         public System.Windows.Forms.Label emailLabel;
         public System.Windows.Forms.Label CashLabel;
-        public System.Windows.Forms.Label DollarLabel;
         private DataBaseUML dataBaseUML;
         private System.Windows.Forms.BindingSource outlayPlanBindingSource;
         private DataBaseUMLTableAdapters.OutlayPlanTableAdapter outlayPlanTableAdapter;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label IncomeDateLabel;
         public System.Windows.Forms.Label OutlayDateLabel;
         public System.Windows.Forms.Label IncomeTextLabel;
