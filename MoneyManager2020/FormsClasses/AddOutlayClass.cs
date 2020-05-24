@@ -27,6 +27,8 @@ namespace MoneyManager2020.FormsClasses
             this.userId = userId;
             this.activeForm = form;
             this.activeMenu = menu;
+            this.outlayId = SetIdTextBox() + 1;
+            this.activeForm.IDTextBox.Text = outlayId.ToString();
         }
 
         public void ShowOutlayTypes()
@@ -41,6 +43,28 @@ namespace MoneyManager2020.FormsClasses
             activeForm.DataGridViewOutlayTypes.DataSource = dataSet.Tables["Outlay_Types"];
             connect.CloseConnection();
         }
+
+        public int SetIdTextBox()
+        {
+            int tempId;
+            SqlDataReader reader;
+            string sqlQuery = "select top 1 ID from Outlays order by ID desc;";
+            connect.OpenConnection();
+            command.CommandText = sqlQuery;
+            command.Connection = connect.GetConnection();
+
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                tempId = Convert.ToInt32(reader["ID"]);
+                reader.Close();
+                connect.CloseConnection();
+                return tempId;
+            }
+            reader.Close();
+            return 0;
+        }
+
 
         public void Add()
         {

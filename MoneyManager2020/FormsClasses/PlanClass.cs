@@ -92,6 +92,7 @@ namespace MoneyManager2020.FormsClasses
                         MessageBox.Show("New outlay was successfuly added into plan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         connect.CloseConnection();
                         ShowPlan();
+                        activeMenu.ShowPlanTable();
                         activeForm.Close();
                     }
                     catch (SqlException e)
@@ -130,6 +131,7 @@ namespace MoneyManager2020.FormsClasses
                     MessageBox.Show("Outlay was successfuly deleted into plan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     connect.CloseConnection();
                     ShowPlan();
+                    activeMenu.ShowPlanTable();
                     activeForm.Close();
                 }
                 catch (SqlException e)
@@ -149,31 +151,37 @@ namespace MoneyManager2020.FormsClasses
         {
             try
             {
+                string datePattern = @"(0?[1-9]|[12][0-9]|3[01]).(0?[1-9]|1[012]).((19|20)\d\d)";
+
                 this.id = Convert.ToInt32(activeForm.IDTextBox.Text);
                 this.cash = Convert.ToDouble(activeForm.CashTextBox.Text);
-                this.date = activeForm.Text;
+                this.date = activeForm.DateTextBox.Text;
                 this.typeId = Convert.ToInt32(activeForm.OutlayTypeIDTextBox.Text);
-                try
+                if (Regex.IsMatch(this.date, datePattern, RegexOptions.IgnoreCase))
                 {
-                    connect.OpenConnection();
-                    string sqlQuery = "update OutlayPlan set cash = @cash, date = @date, typeID = @typeID where ID = @ID";
+                    try
+                    {
+                        connect.OpenConnection();
+                        string sqlQuery = "update OutlayPlan set cash = @cash, planDate = @date, OutlayTypeID = @typeID where ID = @ID";
 
-                    command.Parameters.Add("@ID", SqlDbType.Int).Value = this.id;
-                    command.Parameters.Add("@cash", SqlDbType.Money).Value = this.cash;
-                    command.Parameters.Add("@date", SqlDbType.Date).Value = this.date;
-                    command.Parameters.Add("@typeID", SqlDbType.Int).Value = this.typeId;
-                    command.Connection = connect.GetConnection();
-                    command.CommandText = sqlQuery;
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Outay was successfuly updated in plan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    connect.CloseConnection();
-                    ShowPlan();
-                    activeForm.Close();
-                }
-                catch (SqlException e)
-                {
-                    MessageBox.Show("You enter the existing ID or incorrect type id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    activeForm.Close();
+                        command.Parameters.Add("@ID", SqlDbType.Int).Value = this.id;
+                        command.Parameters.Add("@cash", SqlDbType.Money).Value = this.cash;
+                        command.Parameters.Add("@date", SqlDbType.Date).Value = this.date;
+                        command.Parameters.Add("@typeID", SqlDbType.Int).Value = this.typeId;
+                        command.Connection = connect.GetConnection();
+                        command.CommandText = sqlQuery;
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Outay was successfuly updated in plan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        connect.CloseConnection();
+                        ShowPlan();
+                        activeMenu.ShowPlanTable();
+                        activeForm.Close();
+                    }
+                    catch (SqlException e)
+                    {
+                        MessageBox.Show("You enter the existing ID or incorrect type id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        activeForm.Close();
+                    }
                 }
             }
             catch (FormatException e)

@@ -38,7 +38,7 @@
             this.IdLabel = new System.Windows.Forms.Label();
             this.DiscriptionLabel = new System.Windows.Forms.Label();
             this.IdTextBox = new System.Windows.Forms.TextBox();
-            this.DiscriptiontextBox = new System.Windows.Forms.TextBox();
+            this.DescriptTextBox = new System.Windows.Forms.TextBox();
             this.UserIdTextBox = new System.Windows.Forms.TextBox();
             this.UserIdLabel = new System.Windows.Forms.Label();
             this.AddIncomeButton = new System.Windows.Forms.Button();
@@ -158,12 +158,12 @@
             this.IdTextBox.Size = new System.Drawing.Size(100, 22);
             this.IdTextBox.TabIndex = 27;
             // 
-            // DiscriptiontextBox
+            // DescriptTextBox
             // 
-            this.DiscriptiontextBox.Location = new System.Drawing.Point(17, 411);
-            this.DiscriptiontextBox.Name = "DiscriptiontextBox";
-            this.DiscriptiontextBox.Size = new System.Drawing.Size(100, 22);
-            this.DiscriptiontextBox.TabIndex = 28;
+            this.DescriptTextBox.Location = new System.Drawing.Point(17, 411);
+            this.DescriptTextBox.Name = "DescriptTextBox";
+            this.DescriptTextBox.Size = new System.Drawing.Size(100, 22);
+            this.DescriptTextBox.TabIndex = 28;
             // 
             // UserIdTextBox
             // 
@@ -192,6 +192,7 @@
             this.AddIncomeButton.TabIndex = 31;
             this.AddIncomeButton.Text = "Add income";
             this.AddIncomeButton.UseVisualStyleBackColor = false;
+            this.AddIncomeButton.Click += new System.EventHandler(this.AddIncomeButton_Click);
             // 
             // AddOutlayButton
             // 
@@ -202,6 +203,7 @@
             this.AddOutlayButton.TabIndex = 32;
             this.AddOutlayButton.Text = "Add outlay";
             this.AddOutlayButton.UseVisualStyleBackColor = false;
+            this.AddOutlayButton.Click += new System.EventHandler(this.AddOutlayButton_Click);
             // 
             // DeleteOutlayButton
             // 
@@ -212,6 +214,7 @@
             this.DeleteOutlayButton.TabIndex = 33;
             this.DeleteOutlayButton.Text = "Delete outlay";
             this.DeleteOutlayButton.UseVisualStyleBackColor = false;
+            this.DeleteOutlayButton.Click += new System.EventHandler(this.DeleteOutlayButton_Click);
             // 
             // DeleteIncomeButton
             // 
@@ -222,6 +225,7 @@
             this.DeleteIncomeButton.TabIndex = 34;
             this.DeleteIncomeButton.Text = "Delete income";
             this.DeleteIncomeButton.UseVisualStyleBackColor = false;
+            this.DeleteIncomeButton.Click += new System.EventHandler(this.DeleteIncomeButton_Click);
             // 
             // DeleteUserButton
             // 
@@ -232,6 +236,7 @@
             this.DeleteUserButton.TabIndex = 35;
             this.DeleteUserButton.Text = "Delete user";
             this.DeleteUserButton.UseVisualStyleBackColor = false;
+            this.DeleteUserButton.Click += new System.EventHandler(this.DeleteUserButton_Click);
             // 
             // AdminMenuForm
             // 
@@ -246,7 +251,7 @@
             this.Controls.Add(this.AddIncomeButton);
             this.Controls.Add(this.UserIdTextBox);
             this.Controls.Add(this.UserIdLabel);
-            this.Controls.Add(this.DiscriptiontextBox);
+            this.Controls.Add(this.DescriptTextBox);
             this.Controls.Add(this.IdTextBox);
             this.Controls.Add(this.DiscriptionLabel);
             this.Controls.Add(this.IdLabel);
@@ -277,9 +282,6 @@
         public System.Windows.Forms.Label OutlayLabel;
         public System.Windows.Forms.Label IdLabel;
         public System.Windows.Forms.Label DiscriptionLabel;
-        private System.Windows.Forms.TextBox IdTextBox;
-        private System.Windows.Forms.TextBox DiscriptiontextBox;
-        private System.Windows.Forms.TextBox UserIdTextBox;
         public System.Windows.Forms.Label UserIdLabel;
         private System.Windows.Forms.Button AddIncomeButton;
         private System.Windows.Forms.Button AddOutlayButton;
@@ -289,5 +291,8 @@
         public System.Windows.Forms.DataGridView UsersListDataGridView;
         public System.Windows.Forms.DataGridView IncomeDataGridView;
         public System.Windows.Forms.DataGridView OutlayDataGridView;
+        public System.Windows.Forms.TextBox IdTextBox;
+        public System.Windows.Forms.TextBox DescriptTextBox;
+        public System.Windows.Forms.TextBox UserIdTextBox;
     }
 }
