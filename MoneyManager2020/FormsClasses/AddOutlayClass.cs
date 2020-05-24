@@ -7,6 +7,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Net;
+using System.Net.Mail;
 
 namespace MoneyManager2020.FormsClasses
 {
@@ -98,6 +100,23 @@ namespace MoneyManager2020.FormsClasses
                         command.Parameters.Clear();
                         connect.CloseConnection();
                         activeMenu.Cash = activeMenu.GetCash();
+
+                        if(activeMenu.Cash < 0)
+                        {
+                            MailAddress from = new MailAddress("moneymanager2020adm@mail.ru", "MoneyManager2020");
+                            MailAddress to = new MailAddress(activeMenu.Email);
+                            MailMessage message = new MailMessage();
+                            message.From = from;
+                            message.To.Add(to);
+                            message.Subject = "Cost overruns";
+                            message.Body = "<h1>Dear Moneymanager2020 client, your last outlay was more than cash on your account</h2>";
+                            message.IsBodyHtml = true;
+                            SmtpClient smtp = new SmtpClient("smtp.mail.ru", 25);
+                            smtp.Credentials = new NetworkCredential("moneymanager2020adm@mail.ru", "MoneyManager1");
+                            smtp.EnableSsl = true;
+                            smtp.Send(message);
+                        }
+
                         activeMenu.ShowCash();
                         activeMenu.LastOutlay = activeMenu.GetLastOutlay();
                         activeMenu.LastOutlayDate = activeMenu.GetLastOutlayDate();

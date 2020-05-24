@@ -49,6 +49,11 @@ namespace MoneyManager2020
         {
             get => this.activeMenu;
         }
+
+        public string Email
+        {
+            get => this.email;
+        }
         public int Id
         {
             get => this.id;

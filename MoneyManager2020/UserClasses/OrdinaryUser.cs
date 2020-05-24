@@ -15,7 +15,7 @@ namespace MoneyManager2020
         private double cash;
         private Connect connect;
         private SqlCommand command = new SqlCommand();
-        private string sqlQuery = "select * from Users where email = @mail and password = @pass;";
+        private string sqlQuery = "select * from Users where email = @mail;";
         private SqlDataReader reader;
 
         public OrdinaryUser(SignInForm inForm)
@@ -50,7 +50,6 @@ namespace MoneyManager2020
             connect.OpenConnection();
             command.Connection = connect.GetConnection();
             command.Parameters.Add("@mail", System.Data.SqlDbType.VarChar).Value = email;
-            command.Parameters.Add("@pass", System.Data.SqlDbType.VarChar).Value = password;
             command.CommandText = sqlQuery;
 
             reader = command.ExecuteReader();
