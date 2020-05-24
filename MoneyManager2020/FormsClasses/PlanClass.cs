@@ -94,7 +94,6 @@ namespace MoneyManager2020.FormsClasses
                         connect.CloseConnection();
                         ShowPlan();
                         activeMenu.ShowPlanTable();
-                        activeForm.Close();
                     }
                     catch (SqlException e)
                     {
