@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MoneyManager2020.AddIncomeForm" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAABAACCAABCAIACAAggSAIAgACAAAAABAIAAAIA=</HashCode>
+      <FileName>AddIncomeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.AddOutlayForm" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAgCAEAACAIACAAgACAIBAACAAAAABAIACAIA=</HashCode>
+      <FileName>AddOutlayForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.AdminMenuForm" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAEoIBKEDCAQAAAAoCAAAgCAQAgAkAIAEAQBAAAIAA=</HashCode>
+      <FileName>AdminMenuForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.Connect" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAABABAABQBAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>ConnectClass\Connect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.DataBaseUML" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgIEgCCAA8BAhAJABAIgRUAQBQgCQJgAAgAAAAEAFBg=</HashCode>
+      <FileName>DataBaseUML.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.MainMenu" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIJgFAAIWDEAAgABgCAAAwCCAAAAYICgAAAEAIAAAk=</HashCode>
+      <FileName>MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.Menu" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAACAAQAAEAOAABgggAEAAQABQQEAAgAAAAJACAQAwA=</HashCode>
+      <FileName>MenuClasses\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.OutlayAndIncomeTypesForm" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAEAAAAEADIAQBAAEAKVAAgCAIAAAIQAACAQBAAAAIA=</HashCode>
+      <FileName>OutlayAndIncomeTypesForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.PlanForm" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEIABQAASAUAAAAIACAAwAmAIEAAKAAAAABAIBAAII=</HashCode>
+      <FileName>PlanForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.Program" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.SignInForm" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAIAAwACCIEAAgAAACAAAAiAAABIABAAAAAAAAAgAI=</HashCode>
+      <FileName>SignInForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.Admin" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAgAAggAAAgAAAAAQAAAACAAAAAgAwAgA=</HashCode>
+      <FileName>UserClasses\Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.OrdinaryUser" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAEgAAggAAAgAAABAQAAAACAAAAAgAwAgA=</HashCode>
+      <FileName>UserClasses\OrdinaryUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.DataBaseUMLTableAdapters.Income_TypesTableAdapter" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.DataBaseUMLTableAdapters.UsersTableAdapter" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.DataBaseUMLTableAdapters.IncomesTableAdapter" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.DataBaseUMLTableAdapters.Outlay_TypesTableAdapter" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.DataBaseUMLTableAdapters.OutlayPlanTableAdapter" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.DataBaseUMLTableAdapters.OutlaysTableAdapter" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.DataBaseUMLTableAdapters.AdminsTableAdapter" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.DataBaseUMLTableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACACAAAABABGFBAAAJMAAggAACggIAIAQAQAIABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.FormsClasses.AddIncomeClass" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAEAAAAiAAQAAEAAAQAAgCAAAAAAwAAAAA=</HashCode>
+      <FileName>FormsClasses\AddIncomeClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.FormsClasses.AddOutlayClass" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAABAAAEAAAAmAAAAAAAAAQAAgCAAAAAAQACAAA=</HashCode>
+      <FileName>FormsClasses\AddOutlayClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.FormsClasses.OutlayAndIncomeClass" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAIEAAAEgAgQAAAAAAQABACAAEAMAAACAAA=</HashCode>
+      <FileName>FormsClasses\OutlayAndIncomeClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.FormsClasses.PlanClass" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAEAAAAiAAAAAAAAAUEAACACAAAIQIAAgA=</HashCode>
+      <FileName>FormsClasses\PlanClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.MenuClasses.AdminMenu" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABIAIEAAAkiAAQAAAAAAUABAAAAEAMAgASAgA=</HashCode>
+      <FileName>MenuClasses\AdminMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.PasswordHash.SaltedHash" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>PasswordHash\SaltedHash.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.Properties.Resources" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyManager2020.Properties.Settings" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

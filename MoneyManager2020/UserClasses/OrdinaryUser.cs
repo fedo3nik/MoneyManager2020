@@ -61,6 +61,7 @@ namespace MoneyManager2020
                 connect.CloseConnection();
                 return tempID;
             }
+            reader.Close();
             return 0;
         }
 
@@ -79,6 +80,7 @@ namespace MoneyManager2020
                 connect.CloseConnection();
                 return tempCash;
             }
+            reader.Close();
             return 0;
         }
     }

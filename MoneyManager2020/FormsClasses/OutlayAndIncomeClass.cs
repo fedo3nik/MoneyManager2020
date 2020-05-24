@@ -70,20 +70,20 @@ namespace MoneyManager2020.FormsClasses
                     command.CommandText = sqlQuery;
                     command.ExecuteNonQuery();
                     MessageBox.Show("New income type was successfuly added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    command.Parameters.Clear();
                     connect.CloseConnection();
                     ShowIncomesTypes();
-                    activeForm.Close();
                 }
                 catch(SqlException e)
                 {
                     MessageBox.Show("You enter the existing ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    activeForm.Close();
+                    command.Parameters.Clear();
                 }
             }
             catch(FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                activeForm.Close();
+                command.Parameters.Clear();
             }
 
 
@@ -107,18 +107,20 @@ namespace MoneyManager2020.FormsClasses
                     command.CommandText = sqlQuery;
                     command.ExecuteNonQuery();
                     MessageBox.Show("New outlay type was successfuly added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    command.Parameters.Clear();
                     connect.CloseConnection();
                     ShowOutlayTypes();
                 }
                 catch (SqlException e)
                 {
                     MessageBox.Show("You enter the existing ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    activeForm.Close();
+                    command.Parameters.Clear();
                 }
             }
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                command.Parameters.Clear();
             }
         }
 
@@ -138,20 +140,20 @@ namespace MoneyManager2020.FormsClasses
                     command.CommandText = sqlQuery;
                     command.ExecuteNonQuery();
                     MessageBox.Show("Income type was successfuly deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    command.Parameters.Clear();
                     connect.CloseConnection();
                     ShowIncomesTypes();
-                    activeForm.Close();
                 }
                 catch (SqlException e)
                 {
                     MessageBox.Show("You enter the not existing ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    activeForm.Close();
+                    command.Parameters.Clear();
                 }
             }
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                activeForm.Close();
+                command.Parameters.Clear();
             }
         }
 
@@ -171,20 +173,20 @@ namespace MoneyManager2020.FormsClasses
                     command.CommandText = sqlQuery;
                     command.ExecuteNonQuery();
                     MessageBox.Show("Outlay type was successfuly deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    command.Parameters.Clear();
                     connect.CloseConnection();
                     ShowIncomesTypes();
-                    activeForm.Close();
                 }
                 catch (SqlException e)
                 {
                     MessageBox.Show("You enter the not existing ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    activeForm.Close();
+                    command.Parameters.Clear();
                 }
             }
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                activeForm.Close();
+                command.Parameters.Clear();
             }
         }
 

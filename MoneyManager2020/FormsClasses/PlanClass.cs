@@ -90,6 +90,7 @@ namespace MoneyManager2020.FormsClasses
                         command.CommandText = sqlQuery;
                         command.ExecuteNonQuery();
                         MessageBox.Show("New outlay was successfuly added into plan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        command.Parameters.Clear();
                         connect.CloseConnection();
                         ShowPlan();
                         activeMenu.ShowPlanTable();
@@ -98,19 +99,19 @@ namespace MoneyManager2020.FormsClasses
                     catch (SqlException e)
                     {
                         MessageBox.Show("You enter the existing ID or incorrect type id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        activeForm.Close();
+                        command.Parameters.Clear();
                     }
                 }
                 else
                 {
                     MessageBox.Show("Incorrect date format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    activeForm.Close();
+                    command.Parameters.Clear();
                 }
             }
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                activeForm.Close();
+                command.Parameters.Clear();
             }
         }
 
@@ -129,21 +130,21 @@ namespace MoneyManager2020.FormsClasses
                     command.CommandText = sqlQuery;
                     command.ExecuteNonQuery();
                     MessageBox.Show("Outlay was successfuly deleted into plan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    command.Parameters.Clear();
                     connect.CloseConnection();
                     ShowPlan();
                     activeMenu.ShowPlanTable();
-                    activeForm.Close();
                 }
                 catch (SqlException e)
                 {
                     MessageBox.Show("You enter the existing ID or incorrect type id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    activeForm.Close();
+                    command.Parameters.Clear();
                 }
             }
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                activeForm.Close();
+                command.Parameters.Clear();
             }
         }
 
@@ -172,22 +173,22 @@ namespace MoneyManager2020.FormsClasses
                         command.CommandText = sqlQuery;
                         command.ExecuteNonQuery();
                         MessageBox.Show("Outay was successfuly updated in plan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        command.Parameters.Clear();
                         connect.CloseConnection();
                         ShowPlan();
                         activeMenu.ShowPlanTable();
-                        activeForm.Close();
                     }
                     catch (SqlException e)
                     {
                         MessageBox.Show("You enter the existing ID or incorrect type id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        activeForm.Close();
+                        command.Parameters.Clear();
                     }
                 }
             }
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                activeForm.Close();
+                command.Parameters.Clear();
             }
         }
     }

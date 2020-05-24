@@ -72,6 +72,7 @@
     <Compile Include="FormsClasses\OutlayAndIncomeClass.cs" />
     <Compile Include="FormsClasses\PlanClass.cs" />
     <Compile Include="MenuClasses\AdminMenu.cs" />
+    <Compile Include="PasswordHash\SaltedHash.cs" />
     <Compile Include="UserClasses\Admin.cs" />
     <Compile Include="ConnectClass\Connect.cs" />
     <Compile Include="DataBaseUML.Designer.cs">
@@ -137,6 +138,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="DataBaseUML.xsc">
       <DependentUpon>DataBaseUML.xsd</DependentUpon>
     </None>

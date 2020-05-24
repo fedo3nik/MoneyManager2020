@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography.X509Certificates;
 using MoneyManager2020.MenuClasses;
+using MoneyManager2020.PasswordHash;
 
 namespace MoneyManager2020
 {
@@ -31,20 +32,29 @@ namespace MoneyManager2020
         private void SignInButton_Click(object sender, EventArgs e)
         {
             Connect connect = Connect.GetInstance();
-            DataTable table = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand command = new SqlCommand();
-            string sqlQuery = "select * from Users where email = @mail and password = @pass;";
+            SqlCommand passCommand = new SqlCommand();
+            SqlDataReader reader;
+            string hash = "";
+            string salt = "";
+            string mail = "";
 
-            command.CommandText = sqlQuery;
-            command.Connection = connect.GetConnection();
-            command.Parameters.Add("@mail", SqlDbType.VarChar).Value = EmailTextBox.Text;
-            command.Parameters.Add("@pass", SqlDbType.VarChar).Value = PasswordTextBox.Text;
+            string passSqlQuery = "select email, password, salt from Users where email = @mail";
 
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
+            connect.OpenConnection();
 
-            if(table.Rows.Count > 0)
+            passCommand.CommandText = passSqlQuery;
+            passCommand.Connection = connect.GetConnection();
+            passCommand.Parameters.Add("@mail", SqlDbType.VarChar).Value = EmailTextBox.Text;
+            reader = passCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                mail = Convert.ToString(reader["email"]);
+                hash = Convert.ToString(reader["password"]);
+                salt = Convert.ToString(reader["salt"]);
+            }
+            reader.Close();
+
+            if(mail == EmailTextBox.Text && SaltedHash.Verify(salt, hash, PasswordTextBox.Text))
             {
                 OrdinaryUser user = new OrdinaryUser(this);
                 MainMenu mainMenu = new MainMenu();
@@ -58,6 +68,7 @@ namespace MoneyManager2020
 
             else
             {
+                connect.CloseConnection();
                 if(EmailTextBox.Text.Trim().Equals(""))
                 {
                     MessageBox.Show("Enter your email", "Email field is empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -100,6 +111,7 @@ namespace MoneyManager2020
                     break;
                 }
             }
+            reader.Close();
 
             command.CommandText = sqlQuery;
             command.Connection = connect.GetConnection();
@@ -108,8 +120,11 @@ namespace MoneyManager2020
             {
                 if(PasswordTextBox.Text.Length > 4)
                 {
+                    SaltedHash hashPass = new SaltedHash(PasswordTextBox.Text);
+
                     command.Parameters.Add("@mail", SqlDbType.VarChar).Value = EmailTextBox.Text;
-                    command.Parameters.Add("@pass", SqlDbType.VarChar).Value = PasswordTextBox.Text;
+                    command.Parameters.Add("@pass", SqlDbType.VarChar).Value = hashPass.Hash;
+                    command.Parameters.Add("@salt", SqlDbType.VarChar).Value = hashPass.Salt;
 
 
                     adapter.SelectCommand = command;
@@ -117,7 +132,7 @@ namespace MoneyManager2020
 
                     if (!isUserExist)
                     {
-                        string sqlQuery1 = "insert into Users(email, password) values(@mail, @pass);";
+                        string sqlQuery1 = "insert into Users(email, password, salt) values(@mail, @pass, @salt);";
                         SqlCommand command1 = new SqlCommand();
                         command.Connection = connect.GetConnection();
                         command.CommandText = sqlQuery1;

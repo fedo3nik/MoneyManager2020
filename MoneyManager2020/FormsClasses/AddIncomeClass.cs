@@ -95,6 +95,7 @@ namespace MoneyManager2020.FormsClasses
                         command.CommandText = sqlQuery;
                         command.ExecuteNonQuery();
                         MessageBox.Show("Your income was succesful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        command.Parameters.Clear();
                         connect.CloseConnection();
                         activeMenu.Cash = activeMenu.GetCash();
                         activeMenu.ShowCash();
@@ -102,26 +103,25 @@ namespace MoneyManager2020.FormsClasses
                         activeMenu.LastIncomeDate = activeMenu.GetLastIncomeDate();
                         activeMenu.ShowLastIncome();
                         activeMenu.ShowLastIncomeDate();
-                        activeForm.Close();
 
                     }
                     catch(SqlException e)
                     {
                         MessageBox.Show("You enter the existing ID or incorrect typeId", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        activeForm.Close();
+                        command.Parameters.Clear();
                     }
                 }
                 else
                 {
                     MessageBox.Show("Incorrect date format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    activeForm.Close();
+                    command.Parameters.Clear();
                 }
 
             }
             catch (FormatException e)
             {
                 MessageBox.Show("Some field are empty or has incorrect format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                activeForm.Close();
+                command.Parameters.Clear();
             }
         }
     }
